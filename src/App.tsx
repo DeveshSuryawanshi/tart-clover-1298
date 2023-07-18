@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import { MainRoutes } from './NavBar/MainRoutes';
+import {NavBar} from "./NavBar/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello this is a React app and its working fine</h1>
+      <NavBar/>
+      <MainRoutes/>
     </div>
   );
 }
