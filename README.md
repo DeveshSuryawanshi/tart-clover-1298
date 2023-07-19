@@ -9,8 +9,7 @@
   App
   <li>src
     <ul>
-      <li>
-        <ul>NavBar
+      <li><ul>NavBar
         <li>NavBar.jsx</li>
         <li>MainRoutes.jsx</li>
         </ul>
