@@ -7,11 +7,13 @@ import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
+  <GoogleOAuthProvider clientId="736401194128-21vtg6fd0115980qj1ofuqmqlbcnh3jp.apps.googleusercontent.com">
+
   <ChakraProvider>
     <BrowserRouter>
       <Provider store={store}>
@@ -19,6 +21,7 @@ root.render(
       </Provider>
     </BrowserRouter>
   </ChakraProvider>
+  </GoogleOAuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
