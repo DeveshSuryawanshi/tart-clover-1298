@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import { MainRoutes } from './NavBar/MainRoutes';
-import {NavBar} from "./NavBar/NavBar";
+import {Navbar} from "./NavBar/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
+      <Navbar/>
       <MainRoutes/>
     </div>
   );
