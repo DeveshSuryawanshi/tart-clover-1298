@@ -7,8 +7,7 @@
 <br/>
 <ul>
   App
-  <li>
-    src
+  <li>src
     <ul>
       <li>
         <ul>NavBar
