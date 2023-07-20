@@ -10,8 +10,6 @@ function App() {
     <div className="App">
       <Navbar/>
       <MainRoutes/>
-      <SaleryTex/>
-
     </div>
   );
 }
