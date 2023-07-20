@@ -202,7 +202,7 @@ const DIV = styled.div`
     background-color: white;
     border: 1px solid #ddd5d5;
     padding: 0.6rem;
-    border-radius: 0%.3rem;
+    border-radius: 0% .3rem;
   }
   .row {
     font-family: sans-serif;

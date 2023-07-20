@@ -13,7 +13,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <GoogleOAuthProvider clientId="736401194128-21vtg6fd0115980qj1ofuqmqlbcnh3jp.apps.googleusercontent.com">
-
   <ChakraProvider>
     <BrowserRouter>
       <Provider store={store}>
