@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
 
 export const Calculator = () => {
   const [isAuth, setIsAuth] = useState<boolean>(true);
 
-  const handleRedirect = () => {};
   return (
     <DIV>
       <h2 className="h2">Tax calculators</h2>
@@ -17,11 +17,14 @@ export const Calculator = () => {
         <div className="mini1">
           <div className="cont">
             <div className="child">
-              <img
-                src="https://media.taxtim.com/images/calc-income-tax.png"
-                alt="error"
-              />
-              <p className="overlay">Salary Tax</p>
+              <Link to={"/SalaryTax"}>
+                <img
+                  src="https://media.taxtim.com/images/calc-income-tax.png"
+                  alt="error"
+                  className="SalaryTax"
+                />
+                <p className="overlay">Salary Tax</p>
+              </Link>
             </div>
             <div className="child">
               <img
@@ -73,13 +76,15 @@ export const Calculator = () => {
               <p className="overlay">Retirement Savings</p>
             </div>
             <div className="child">
-              <img
-                src="https://media.taxtim.com/images/calc-capital-gains.png"
-                alt="error"
-              />
-              <div className="overlay">
-                <p className="overChild">Home office Calculator</p>
-              </div>
+              <Link to={"/HomeofficeCalculator"}>
+                <img
+                  src="https://media.taxtim.com/images/calc-capital-gains.png"
+                  alt="error"
+                />
+                <div className="overlay">
+                  <p className="overChild">Home office Calculator</p>
+                </div>
+              </Link>
             </div>
           </div>
           <h2>Calculators for Companies</h2>
@@ -188,7 +193,7 @@ export const Calculator = () => {
                 clicks!
               </p>
 
-              <button onClick={handleRedirect}>GET STARTED</button>
+              <button>GET STARTED</button>
             </div>
           ) : (
             <img
@@ -384,11 +389,11 @@ const DIV = styled.div`
       grid-template-columns: repeat(3, 180px);
     }
 
-    .mini2{
+    .mini2 {
       width: 100%;
     }
 
-    .desk{
+    .desk {
       width: 100%;
     }
   }
@@ -402,7 +407,7 @@ const DIV = styled.div`
       width: 100%;
     }
 
-    .cont { 
+    .cont {
       width: 100%;
       grid-template-columns: repeat(3, 180px);
     }
@@ -411,15 +416,15 @@ const DIV = styled.div`
       grid-template-columns: repeat(3, 180px);
     }
 
-    .mini2{
+    .mini2 {
       width: 100%;
     }
 
-    .desk{
+    .desk {
       width: 100%;
     }
 
-    h2{
+    h2 {
       width: 100%;
     }
   }
@@ -432,7 +437,7 @@ const DIV = styled.div`
       width: 100%;
     }
 
-    .cont { 
+    .cont {
       width: 100%;
       grid-template-columns: repeat(2, 180px);
     }
@@ -441,15 +446,15 @@ const DIV = styled.div`
       grid-template-columns: repeat(2, 180px);
     }
 
-    .mini2{
+    .mini2 {
       width: 100%;
     }
 
-    .desk{
+    .desk {
       width: 100%;
     }
 
-    h2{
+    h2 {
       width: 100%;
     }
   }
