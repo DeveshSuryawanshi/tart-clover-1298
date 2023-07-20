@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import "./Navbar.css"
-import logo from "../Images/ProjectLogo.png"
+// import logo from "../Images/ProjectLogo.png"
 export const Navbar = () => {
   return (
     
@@ -44,7 +44,7 @@ export const Navbar = () => {
       <div className="top-nav-II">
         <div className="logo-img">
           <Link to="/">
-            <img src={logo} alt="" />
+            <img src="https://www.taxtim.com/za/images/taxtim-logo.svg" alt="" />
           </Link>
         </div>
         <div className="top-nav-III">

@@ -4,8 +4,9 @@ import { Blogs } from "../pages/Blogs/Blogs";
 import { Calculator } from "../pages/Calculator/Calculator";
 import { Contact } from "../pages/Contact/Contact";
 import { Faq } from "../pages/FAQ/Faq";
-import { HomePage } from "../pages/HomePage/HomePage";
+// import { HomePage } from "../pages/HomePage/HomePage";
 import { Login } from "../pages/Login/Login";
+import HomePage from "../pages/HomePage/HomePage";
 
 export const MainRoutes = () => {
   return (
