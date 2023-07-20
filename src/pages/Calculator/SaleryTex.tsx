@@ -1,13 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import ReusebaleCalculator from "./ReusebaleCalculator";
 import { Link } from "react-router-dom";
 import ReusiblerightContent from "./ReusiblerightContent";
+interface TypeOfData{
+  year:string;
+  deductions_salary:number;
+  duration:string;
+  salary_include_raf:string;
+  pay_private_raf:string;
+  monthly_allowance:string;
+  age:number;
+  salary_include_raf_value:number;
+  pay_private_raf_value:number;
+  monthly_allowance_value:number
+
+}
+
+const initialSaleryData:TypeOfData={
+  year:"2024",
+  deductions_salary:20000,
+  duration:"",
+  salary_include_raf:"",
+  pay_private_raf:"",
+  monthly_allowance:"",
+  age:23,
+  salary_include_raf_value:0,
+  pay_private_raf_value:0,
+  monthly_allowance_value:0
+
+}
 const SaleryTex = () => {
   const [sowPerson, setSoPerson] = React.useState(false);
- 
+  const [AllData,setAllData]=useState<TypeOfData>(initialSaleryData)
+const [sowPoster,setSowPoster]=useState(true)
+console.log(sowPoster);
+
+  // useEffect(()=>{
+  //   setInterval(()=>{
+  //     setSowPoster(prev=>!prev)
+  //   },3000)
+  // },[])
+
+ let {year,deductions_salary,duration,salary_include_raf,salary_include_raf_value,pay_private_raf,pay_private_raf_value,monthly_allowance,monthly_allowance_value,age} =AllData
   const handleClick = () => {
-    setSoPerson((prev) => !prev);
+    setSoPerson((prev) => !prev)
   };
   return (
     <DIV>
@@ -33,7 +70,7 @@ const SaleryTex = () => {
                     <input type="hidden" id="year" value="2024" />
                     {`Which tax year would you like to calculate?  `}
                     {/* style="width:240px" */}
-                    <select id="yearsel" className="wide">
+                    <select onChange={(e)=>setAllData(prev=>({...prev,year:e.target.value}))} id="yearsel" className="wide" value={year}>
                       <option value="2024">2024 (Mar 2023 - Feb 2024)</option>
                       <option value="2023">2023 (Mar 2022 - Feb 2023)</option>
                       <option value="2022">2022 (Mar 2021 - Feb 2022)</option>
@@ -43,18 +80,17 @@ const SaleryTex = () => {
 
                   <div className="row">
                     {`What is your total salary before deductions?  `}
-                    {/* <div className="tooltip"><i></i><div className="tip-text">This must be the entire amount, including all benefits, that your boss pays you.<i></i></div></div> */}
-                    <input
+                    <input maxLength={8} onChange={(e)=>setAllData(prev=> ({...prev,deductions_salary:+e.target.value}))}
                       type="text"
                       className="wide"
                       id="gross"
-                      value="20000"
+                      value={deductions_salary}
                     />
                   </div>
 
                   <div className="row">
                     {`How often do you receive this salary?  `}
-                    <select className="wide" id="period">
+                    <select onChange={(e)=>setAllData(prev=>({...prev,duration:e.target.value}))} className="wide" id="period" value={duration}>
                       <option value="weekly">Weekly</option>
                       <option value="fortnightly">Every 2 weeks</option>
                       <option value="monthly">Monthly</option>
@@ -78,38 +114,68 @@ const SaleryTex = () => {
                   <div className="row">
                     {`Does your salary include contributions to a pension, provident fund or RAF?   `}
                     <br />
-                    <select
+                    <select onChange={(e)=>setAllData(prev=>({...prev,salary_include_raf:e.target.value}))}
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
-                    >
+                   value={salary_include_raf}
+                   >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
+                  {salary_include_raf=="Yes"&&<div className="row">
+                    {`→ Please enter the total amount:   `}
+                    <input maxLength={8} onChange={(e)=>setAllData(prev=> ({...prev,salary_include_raf_value:+e.target.value}))}
+                      type="text"
+                      className="wide"
+                      id="gross"
+                      value={salary_include_raf_value}
+                    />
+                  </div>}
                   <div className="row">
                     {`Do you pay private contributions to a pension, provident fund or RAF?   `}
                     <br />
-                    <select
+                    <select onChange={(e)=>setAllData(prev=>({...prev,pay_private_raf:e.target.value}))}
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
+                      value={pay_private_raf}
                     >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
+                  {pay_private_raf=="Yes"&&<div className="row">
+                    {`→ Please enter the total amount:   `}
+                    <input maxLength={8} onChange={(e)=>setAllData(prev=> ({...prev,pay_private_raf_value:+e.target.value}))}
+                      type="text"
+                      className="wide"
+                      id="gross"
+                      value={pay_private_raf_value}
+                    />
+                  </div>}
                   <div className="row">
                     {`Does your salary include money for a travel allowance?   `}
-                    <select
+                    <select onChange={(e)=>setAllData(prev=>({...prev,monthly_allowance:e.target.value}))}
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
+                      value={monthly_allowance}
                     >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
+                   {monthly_allowance=="Yes"&&<div className="row">
+                    {`→ Please enter the total amount:   `}
+                    <input maxLength={8} onChange={(e)=>setAllData(prev=> ({...prev,monthly_allowance_value:+e.target.value}))}
+                      type="text"
+                      className="wide"
+                      id="gross"
+                      value={monthly_allowance_value}
+                    />
+                  </div>}
                 </div>
               </div>
             )}
@@ -117,7 +183,7 @@ const SaleryTex = () => {
               <div className="age-box grey">
                 <div className="row">
                   {`Your age?  `}
-                  <input type="text" className="wide" id="gross" value="22" />
+                  <input maxLength={2} onChange={(e)=>setAllData(prev=>({...prev,age:+e.target.value}))} type="text" className="wide" id="gross" value={age} />
                 </div>
               </div>
             </div>
@@ -148,7 +214,9 @@ const SaleryTex = () => {
               </div>
             </div>
           </div>
-          <ReusiblerightContent />
+         {sowPoster? <ReusiblerightContent />:<div>
+          <img src="https://media.taxtim.com/images/media-za/Twitter-Stories-switch.jpg" alt="" />
+          </div>}
         </div>
       </div>
     </DIV>
@@ -170,6 +238,7 @@ const DIV = styled.div`
   .all-containt-main {
     display: flex;
   }
+  /* className="right-side-content" */
   .left-side-content {
     border: 0px solid red;
     padding: 2rem;
@@ -223,8 +292,7 @@ const DIV = styled.div`
     text-align: left;
     /* text-align:left; */
   }
-  .calculate-btn,
-  .get-start-btn {
+  .calculate-btn{
     padding: 0.6rem 0.8rem;
     background-color: #ca1d1d;
     color: white;
@@ -233,14 +301,7 @@ const DIV = styled.div`
     font-size: 1em;
     border-radius: 0.3rem;
   }
-  .get-start-btn {
-    background-color: #444444;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
-      0 1px 5px 0 rgb(0 0 0 / 20%);
-    border-radius: 2px;
-    border: 2px solid #444444;
-    font-family: "Montserrat", Arial, sans-serif;
-  }
+ 
   .calculate-btn:hover {
     background-color: #e20b0b;
   }
@@ -248,26 +309,11 @@ const DIV = styled.div`
     text-decoration: none;
     color: #2aa12e;
   }
-  .right-side-content {
-    font-size: 16px;
-    border: 0px solid red;
-    text-align: start;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-family: "Droid Sans", Arial, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #4d4d4d;
-    /* flex-direction: column; */
-  }
-  .dummy-image {
-    display: flex;
-    border: 0px solid red;
-    /* justify-content: space-around; */
-    align-items: center;
-  }
+  /* .right-side-content {
+ 
+   flex-direction: column; 
+  } */
+ 
   h1,
   h2,
   h3,
