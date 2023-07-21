@@ -4,11 +4,15 @@ import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from '../actionType';
 
 export const login = (dispatch: Dispatch, email: string, password: string) => {
   dispatch({ type: LOGIN_REQUEST });
-  
+
   axios.get('https://cw-project-rct101.onrender.com/users')
     .then((res) => {
-      if (res.data.some((el: { email: string, password: string }) => el.email === email && el.password === password)) {
-        dispatch({ type: LOGIN_SUCCESS });
+      const user = res.data.find((el: { email: string; password: string }) => el.email === email && el.password === password);
+
+      if (user) {
+        dispatch({ type: LOGIN_SUCCESS, payload: { email: email, username:user.username, image: user.image } });
+      } else {
+        dispatch({ type: LOGIN_FAILURE });
       }
     })
     .catch((err) => {
