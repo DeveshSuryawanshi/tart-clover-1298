@@ -9,6 +9,7 @@ import { Faq } from "../pages/FAQ/Faq";
 // import { HomePage } from "../pages/HomePage/HomePage";
 import { Login } from "../pages/Login/Login";
 import HomePage from "../pages/HomePage/HomePage";
+import Taxrefund from "../pages/Calculator/TaxRefund";
 
 export const MainRoutes = () => {
   return (
@@ -20,6 +21,7 @@ export const MainRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/faq" element={<Faq />} />
       {/* Calculator Routes */}
+<!-- <<<<<<< day-04-fw24_688
       <Route path="/SalaryTax" element={<SaleryTex />} />
       <Route path="/TaxRefund" element={""} />
       <Route path="/RetirementLumpSum" element={""} />
@@ -29,6 +31,16 @@ export const MainRoutes = () => {
       <Route path="/WearTear" element={""} />
       <Route path="/RetirementSavings" element={""} />
       <Route path="/HomeofficeCalculator" element={<HomeOfficeCalculator />} />
+======= -->
+      <Route path="/SalaryTax" element={<SaleryTex/>}/>
+      <Route path="/TaxRefund" element={<Taxrefund/>}/>
+      <Route path="/RetirementLumpSum" element={""}/>
+      <Route path="/TravelDeduction" element={""}/>
+      <Route path="/CapitalGainsTax" element={""}/>
+      <Route path="/MedicalAidCredits" element={""}/>
+      <Route path="/WearTear" element={""}/>
+      <Route path="/RetirementSavings" element={""}/>
+      <Route path="/HomeofficeCalculator" element={<HomeOfficeCalculator/>}/>
     </Routes>
   );
 };
