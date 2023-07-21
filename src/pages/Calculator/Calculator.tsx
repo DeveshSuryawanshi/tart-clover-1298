@@ -27,11 +27,13 @@ export const Calculator = () => {
               </Link>
             </div>
             <div className="child">
+              <Link to ={"/TaxRefund"}>
               <img
                 src="https://media.taxtim.com/images/calc-refund.png"
                 alt="error"
               />
               <p className="overlay">Tax Refund </p>
+              </Link>
             </div>
             <div className="child">
               <img

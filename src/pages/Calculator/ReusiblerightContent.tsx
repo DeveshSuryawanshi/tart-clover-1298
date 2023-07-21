@@ -26,9 +26,35 @@ const ReusiblerightContent = () => {
 
       {/* -- */}
       <div className="suggession" style={{ padding: "15px" }}>
-        <p>-- Do Your Tax Return Easily</p>
+        {/* <p>-- Do Your Tax Return Easily</p>
         <p>-- Avoid penalties</p>
-        <p>--Maximise your refund</p>
+        <p>--Maximise your refund</p> */}
+        <ul>
+                <li>
+                  <img
+                    className="rightSvg"
+                    src="https://media.taxtim.com/images/icon_tick_circle.svg"
+                    alt="error"
+                  />
+                  <p>Do Your Tax Return Easily</p>
+                </li>
+                <li>
+                  <img
+                    className="rightSvg"
+                    src="https://media.taxtim.com/images/icon_tick_circle.svg"
+                    alt="error"
+                  />
+                  <p>Avoid penalties</p>
+                </li>
+                <li>
+                  <img
+                    className="rightSvg"
+                    src="https://media.taxtim.com/images/icon_tick_circle.svg"
+                    alt="error"
+                  />
+                  <p>Maximise your refund</p>
+                </li>
+              </ul>
       </div>
       {/* -- */}
       <div className="about-save-tax">
@@ -84,6 +110,17 @@ const DIV= styled.div`
     border-radius: 2px;
     border: 2px solid #444444;
     font-family: "Montserrat", Arial, sans-serif;
+  }
+  ul {
+    margin: 20px;
+  }
+  .rightSvg {
+    width: 20px;
+    margin-right: 5px;
+  }
+  li {
+    display: flex;
+    margin: 5px;
   }
   h1,
   h2,
