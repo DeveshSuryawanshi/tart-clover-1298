@@ -108,12 +108,12 @@
   /* Media query for small screens */
   @media (max-width: 375px) {
     .reg-nav {
-      display: none; /* Hide the registration section on small screens */
+      display: none; 
     }
     
     .link-div {
-      justify-content: center; /* Center align the links */
-      width: 100%; /* Occupy full width */
+      justify-content: center; 
+      width: 100%; 
       margin-top: 15px; 
     }
     
@@ -141,7 +141,7 @@
     }
     
     .getstart {
-      display: none; /* Hide the "GET STARTED" button on small screens */
+      display: none; 
     }
   }
   

@@ -1,6 +1,6 @@
 import React from "react";
 import LapImg from "../HomePage/Screenshot (371).png"
-import HomePageImg from "../HomePage/HomePage (600).png"
+import HomePageImg from "../image/login.jpg"
 import  "./HomePage.css"
 
 import { useState } from "react";
