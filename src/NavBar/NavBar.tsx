@@ -5,7 +5,7 @@ import "./Navbar.css"
 // import logo from "../Images/ProjectLogo.png"
 export const Navbar = () => {
   return (
-    
+
     <>
       <div className="top-nav">
         <div className="reg-nav">
@@ -27,6 +27,11 @@ export const Navbar = () => {
           <div>
             <Link className="link" to="/faq">
               FAQ
+            </Link>
+          </div>
+          <div>
+            <Link className="link" to="/blog">
+              Blog
             </Link>
           </div>
           <div>
