@@ -58,7 +58,7 @@ export const Navbar = () => {
             <a href="/" className="anch">Help</a>
           </div>
           <div>
-            <button className="getstart">GET STARTED</button>
+            <button className="getstart"><a href="/login">GET STARTED</a></button>
           </div>
         </div>
       </div>
