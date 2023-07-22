@@ -44,6 +44,11 @@ export const Navbar = () => {
               Login
             </Link>
           </div>
+          <div>
+            <Link className="link" to="/admin">
+              Admin
+            </Link>
+          </div>
         </div>
       </div>
       <div className="top-nav-II">

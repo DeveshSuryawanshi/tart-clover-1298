@@ -35,6 +35,7 @@ const navigate=useNavigate()
 const toast = useToast()
   const { isAuth } = useSelector((state: RootState) => state.auth);
   const { userData } = useSelector((state: RootState) => state.auth);
+  const { isAdmin } = useSelector((state: RootState) => state.auth);
   // const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,6 +64,7 @@ const toast = useToast()
   
   console.log(isAuth)
   console.log(userData)
+  console.log(isAdmin,"admin")
   const handleLogout=()=>{
     googleLogout();
     dispatch({type:LOGIN_SUCCESS_LOGOUT})

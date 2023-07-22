@@ -10,5 +10,6 @@ export interface AuthState {
     isAuth: boolean;
     isLoading: boolean;
     isError: boolean;
-    userData:data
+    userData:data;
+    isAdmin: boolean;
   }
