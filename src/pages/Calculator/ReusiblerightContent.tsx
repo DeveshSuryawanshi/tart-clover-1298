@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 
 const ReusiblerightContent = () => {
   return (
-    <DIV >
+    <DIV>
       <div className="dummy-image">
         {/* -- */}
         <div>
@@ -26,35 +26,32 @@ const ReusiblerightContent = () => {
 
       {/* -- */}
       <div className="suggession" style={{ padding: "15px" }}>
-        {/* <p>-- Do Your Tax Return Easily</p>
-        <p>-- Avoid penalties</p>
-        <p>--Maximise your refund</p> */}
         <ul>
-                <li>
-                  <img
-                    className="rightSvg"
-                    src="https://media.taxtim.com/images/icon_tick_circle.svg"
-                    alt="error"
-                  />
-                  <p>Do Your Tax Return Easily</p>
-                </li>
-                <li>
-                  <img
-                    className="rightSvg"
-                    src="https://media.taxtim.com/images/icon_tick_circle.svg"
-                    alt="error"
-                  />
-                  <p>Avoid penalties</p>
-                </li>
-                <li>
-                  <img
-                    className="rightSvg"
-                    src="https://media.taxtim.com/images/icon_tick_circle.svg"
-                    alt="error"
-                  />
-                  <p>Maximise your refund</p>
-                </li>
-              </ul>
+          <li>
+            <img
+              className="rightSvg"
+              src="https://media.taxtim.com/images/icon_tick_circle.svg"
+              alt="error"
+            />
+            <p>Do Your Tax Return Easily</p>
+          </li>
+          <li>
+            <img
+              className="rightSvg"
+              src="https://media.taxtim.com/images/icon_tick_circle.svg"
+              alt="error"
+            />
+            <p>Avoid penalties</p>
+          </li>
+          <li>
+            <img
+              className="rightSvg"
+              src="https://media.taxtim.com/images/icon_tick_circle.svg"
+              alt="error"
+            />
+            <p>Maximise your refund</p>
+          </li>
+        </ul>
       </div>
       {/* -- */}
       <div className="about-save-tax">
@@ -82,23 +79,23 @@ const ReusiblerightContent = () => {
 };
 
 export default ReusiblerightContent;
-const DIV= styled.div`
-/* visibility: hidden; */
-     font-size: 16px;
-    border: 0px solid red;
-    text-align: start;
-    padding: 20px;
-    display: flex;
-/* display: none; */
-    flex-direction: column;
-    gap: 20px;
-    font-family: "Droid Sans", Arial, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #4d4d4d;
+const DIV = styled.div`
+  /* visibility: hidden; */
+  font-size: 16px;
+  border: 0px solid red;
+  text-align: start;
+  padding: 20px;
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Droid Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #4d4d4d;
 
-    .dummy-image {
-      /* display: none; */
+  .dummy-image {
+    /* display: none; */
     display: flex;
     border: 0px solid red;
     /* justify-content: space-around; */
@@ -114,10 +111,10 @@ const DIV= styled.div`
     border: 2px solid #444444;
     font-family: "Montserrat", Arial, sans-serif;
   }
-  .get-start-btn:hover{
+  .get-start-btn:hover {
     background-color: white;
     color: black;
-    box-shadow:none;
+    box-shadow: none;
   }
   ul {
     margin: 20px;
@@ -146,4 +143,4 @@ const DIV= styled.div`
   h2 {
     font-size: 1.5rem;
   }
-`
+`;

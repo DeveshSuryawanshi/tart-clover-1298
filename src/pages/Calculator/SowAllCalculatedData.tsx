@@ -1,66 +1,86 @@
-import React from 'react'
-import { styled } from 'styled-components'
-import { TypeOfData as TypeOfData1 } from './TaxRefund'
-import { TypeOfData as TypeOfData2} from './SaleryTex'
+import React from "react";
+import { styled } from "styled-components";
+import { TypeOfData as TypeOfData1 } from "./TaxRefund";
+import { TypeOfData as TypeOfData2 } from "./SaleryTex";
 interface TypeOfAllData extends TypeOfData1 {
-TotalSum:number;
+  TotalSum: number;
 }
 interface TypeOfAllData2 extends TypeOfData2 {
-  TotalSum:number;
+  TotalSum: number;
 }
-const SowAllCalculatedData = ({AllDetails2,TotalSum}:TypeOfAllData|TypeOfAllData2|any) => {
-  console.log("AllDetails2",AllDetails2);
-  
-//   Take home pay:
-// R17639
+const SowAllCalculatedData = ({
+  AllDetails2,
+  TotalSum,
+}: TypeOfAllData | TypeOfAllData2 | any) => {
+  console.log("AllDetails2", AllDetails2);
 
-// In the previous year this would have been R17498 (now R141 more!).
-
-// This is how you work it out:
-
-// Taxable income = Annual gross salary - Pension / Provident / RAF (limited to 27.5% of salary, limited to R350k) - 20% of travel allowance
-// (You are taxed on 80% of the travel allowance in your Gross salary, so we subtract 20% for the calculation of Taxable income.)
-// Taxable income = R 240,000.00 - R 0.00 - R 0.00
-// Taxable income for the year: R 240,000.00
-// Tax you will pay / PAYE (Pay As You Earn) for your age group and income bracket: R 2,183.08  (as per PAYE tables provided by SARS)
-// Take home pay = Gross salary - PAYE - UIF
-// (UIF / Unemployment Insurance Fund is levied at 1% of your gross income, at most R177.12)
-// Take home pay = R 20,000.00 - R 2,183.08 - R 177.12
-// Take home pay: R 17,639.80 per month :)
-
-// let sum=(Gross_Employment_Income+Total_annuity_fund+
-//   Other_income+Pension_Fund+Provident_Fund+
-//   Retirement_Annuity+expenses+claim)
   return (
-    <DIV >
+    <DIV>
       <div>
-      <h1 className="home-pay">Take home pay:</h1>
-      <p>R :{` ${TotalSum}`}</p>
-      <br />
-      <h5 className="all-conditions">In the previous year this would have been R17498 (now R{AllDetails2.Gross_Employment_Income} more!).</h5>
-      <br />
-      <h5 className="all-conditions">This is how you work it out:</h5>
-      <h5 className="all-conditions">Taxable income = Annual gross salary - Pension / Provident / RAF (limited to 27.5% of salary, limited to R350k) - 20% of travel allowance</h5>
-      <h5 className="all-conditions">Taxable income = R {TotalSum}.00 - R {AllDetails2.Provident_Fund}.00 - R {AllDetails2.Retirement_Annuity}.00</h5>
-      <h5 className="all-conditions">Taxable income for the year: R {TotalSum-AllDetails2.Provident_Fund-AllDetails2.Retirement_Annuity}.00</h5>
-      <h5 className="all-conditions">Tax you will pay / PAYE (Pay As You Earn) for your age group and income bracket: R 2,183.08  (as per PAYE tables provided by SARS)</h5>
-      <h5 className="all-conditions">Take home pay = Gross salary - PAYE - UIF</h5>
-      <h5 className="all-conditions">(UIF / Unemployment Insurance Fund is levied at 1% of your gross income, at most R{(TotalSum - AllDetails2.Provident_Fund -  AllDetails2.Retirement_Annuity)*1/100})</h5>
-      <br />
-      <h5 className="all-conditions">Take home pay = R {TotalSum} - R 2,183.08 - R 177.12</h5>
-      <h5 className="all-conditions">Take home pay = R {TotalSum - AllDetails2.Provident_Fund - (TotalSum - AllDetails2.Provident_Fund -  AllDetails2.Retirement_Annuity)*1/100} </h5>
-      <h5 className="all-conditions"></h5>
+        <h1 className="home-pay">Take home pay:</h1>
+        <p>R :{` ${TotalSum}`}</p>
+        <br />
+        <h5 className="all-conditions">
+          In the previous year this would have been R17498 (now R
+          {AllDetails2.Gross_Employment_Income} more!).
+        </h5>
+        <br />
+        <h5 className="all-conditions">This is how you work it out:</h5>
+        <h5 className="all-conditions">
+          Taxable income = Annual gross salary - Pension / Provident / RAF
+          (limited to 27.5% of salary, limited to R350k) - 20% of travel
+          allowance
+        </h5>
+        <h5 className="all-conditions">
+          Taxable income = R {TotalSum}.00 - R {AllDetails2.Provident_Fund}.00 -
+          R {AllDetails2.Retirement_Annuity}.00
+        </h5>
+        <h5 className="all-conditions">
+          Taxable income for the year: R{" "}
+          {TotalSum -
+            AllDetails2.Provident_Fund -
+            AllDetails2.Retirement_Annuity}
+          .00
+        </h5>
+        <h5 className="all-conditions">
+          Tax you will pay / PAYE (Pay As You Earn) for your age group and
+          income bracket: R 2,183.08 (as per PAYE tables provided by SARS)
+        </h5>
+        <h5 className="all-conditions">
+          Take home pay = Gross salary - PAYE - UIF
+        </h5>
+        <h5 className="all-conditions">
+          (UIF / Unemployment Insurance Fund is levied at 1% of your gross
+          income, at most R
+          {((TotalSum -
+            AllDetails2.Provident_Fund -
+            AllDetails2.Retirement_Annuity) *
+            1) /
+            100}
+          )
+        </h5>
+        <br />
+        <h5 className="all-conditions">
+          Take home pay = R {TotalSum} - R 2,183.08 - R 177.12
+        </h5>
+        <h5 className="all-conditions">
+          Take home pay = R{" "}
+          {TotalSum -
+            AllDetails2.Provident_Fund -
+            ((TotalSum -
+              AllDetails2.Provident_Fund -
+              AllDetails2.Retirement_Annuity) *
+              1) /
+              100}{" "}
+        </h5>
       </div>
     </DIV>
-  )
-}
+  );
+};
 
-export default SowAllCalculatedData
+export default SowAllCalculatedData;
 
-const DIV=styled.div`
-
-    /* height: 200px; */
-    border: 2px solid red;
-    text-align: start;
-
-`
+const DIV = styled.div`
+  border: 0px solid red;
+  text-align: start;
+`;
