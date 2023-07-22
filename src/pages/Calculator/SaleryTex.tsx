@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import ReusiblerightContent from "./ReusiblerightContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-interface TypeOfData {
+import SowAllCalculatedData from "./SowAllCalculatedData";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/Store";
+export interface TypeOfData {
   year: string;
   deductions_salary: number;
   duration: string;
@@ -33,8 +36,10 @@ const initialSaleryData: TypeOfData = {
 const SaleryTex = () => {
   const [sowPerson, setSoPerson] = React.useState(false);
   const [AllData, setAllData] = useState<TypeOfData>(initialSaleryData);
-  // const [sowPoster,setSowPoster]=useState(true)
+  const [totalSum, setTotalSum] = useState(0);
+  const [AllDetails, setAllDetails] = useState<null | TypeOfData>(null);
 
+  const { isAuth } = useSelector((state: RootState) => state.auth);
   let {
     year,
     deductions_salary,
@@ -49,6 +54,17 @@ const SaleryTex = () => {
   } = AllData;
   const handleClick = () => {
     setSoPerson((prev) => !prev);
+  };
+
+  const handleAddAllTax = () => {
+    let sum =
+      deductions_salary +
+      salary_include_raf_value +
+      pay_private_raf_value +
+      monthly_allowance_value;
+    setAllDetails(AllData);
+    setTotalSum(sum);
+    setAllData(initialSaleryData);
   };
   return (
     <DIV>
@@ -95,7 +111,7 @@ const SaleryTex = () => {
                   <div className="row">
                     {`What is your total salary before deductions?  `}
                     <div className="font-question">
-                    <FontAwesomeIcon icon={faQuestion} />
+                      <FontAwesomeIcon icon={faQuestion} />
                     </div>
                     <input
                       maxLength={8}
@@ -134,9 +150,7 @@ const SaleryTex = () => {
                 </div>
               </div>
             </div>
-            {/* <div></div>
-    <div></div> */}
-            {/* <a href="#" onClick={handleClick} > */}
+
             <div
               style={{ textAlign: "left" }}
               className="calc-header"
@@ -152,7 +166,7 @@ const SaleryTex = () => {
                   <div className="row">
                     {`Does your salary include contributions to a pension, provident  fund or RAF?   `}
                     <div className="font-question">
-                    <FontAwesomeIcon icon={faQuestion} />
+                      <FontAwesomeIcon icon={faQuestion} />
                     </div>
                     <br />
                     <select
@@ -174,7 +188,7 @@ const SaleryTex = () => {
                   {salary_include_raf == "Yes" && (
                     <div className="row">
                       {`→ Please enter the total amount:   `}
-                      
+
                       <input
                         maxLength={8}
                         onChange={(e) =>
@@ -193,7 +207,7 @@ const SaleryTex = () => {
                   <div className="row">
                     {`Do you pay private contributions to a pension, provident fund or RAF?   `}
                     <div className="font-question">
-                    <FontAwesomeIcon icon={faQuestion} />
+                      <FontAwesomeIcon icon={faQuestion} />
                     </div>
                     <br />
                     <select
@@ -233,7 +247,7 @@ const SaleryTex = () => {
                   <div className="row">
                     {`Does your salary include money for a travel allowance?   `}
                     <div className="font-question">
-                    <FontAwesomeIcon icon={faQuestion} />
+                      <FontAwesomeIcon icon={faQuestion} />
                     </div>
                     <select
                       onChange={(e) =>
@@ -298,7 +312,9 @@ const SaleryTex = () => {
                 style={{ backgroundColor: "white" }}
               >
                 <div className="row">
-                  <button className="calculate-btn">CALCULATE</button>
+                  <button onClick={handleAddAllTax} className="calculate-btn">
+                    CALCULATE
+                  </button>
                 </div>
               </div>
             </div>
@@ -318,8 +334,23 @@ const SaleryTex = () => {
                 </div>
               </div>
             </div>
+            {AllDetails && (
+              <SowAllCalculatedData
+                AllDetails2={AllDetails}
+                TotalSum={totalSum}
+              />
+            )}
           </div>
-          <ReusiblerightContent />
+          {isAuth ? (
+            <div className="dummy-image">
+              <img
+                src="https://media.taxtim.com/images/media-za/Twitter-Stories-switch.jpg"
+                alt=""
+              />
+            </div>
+          ) : (
+            <ReusiblerightContent />
+          )}
         </div>
       </div>
     </DIV>
@@ -334,29 +365,38 @@ const DIV = styled.div`
     margin: auto;
     border: 0px solid red;
   }
+
   .calculate-year {
+    border: 0px solid blue;
     padding: 0.6rem;
     text-align: start;
   }
   .all-containt-main {
     display: flex;
   }
+
+  .dummy-image > img {
+    width: 65%;
+    margin: auto;
+    cursor: pointer;
+  }
+
   /* className="right-side-content" */
   .left-side-content {
     border: 0px solid red;
     padding: 2rem;
   }
-  .font-question{
-    border:1px solid red;
-    border-radius:50%;
+  .font-question {
+    border: 1px solid red;
+    border-radius: 50%;
     background-color: #c02626;
-    padding:1px;
-    color:white;
-   text-align:center;
-   font-size:12px;
-   margin-left: 5px;
-   width: 17px;
-   height: 14px;
+    padding: 1px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 5px;
+    width: 17px;
+    height: 14px;
   }
   .income {
     background-color: #444444;
@@ -411,16 +451,15 @@ const DIV = styled.div`
     font-size: 1.3em;
     margin: 1.5rem 0rem 0px;
     gap: 1rem;
-    /* border:3px solid black; */
+
     text-align: left;
-    /* text-align:left; */
   }
   .calculate-btn {
     padding: 0.6rem 0.8rem;
     border: 0px solid black;
     background-color: #ca1d1d;
     color: white;
-    /* padding: 0.7em 1em; */
+
     font-family: "Montserrat", Arial, sans-serif;
     font-size: 1em;
     border-radius: 0.3rem;
@@ -433,10 +472,6 @@ const DIV = styled.div`
     text-decoration: none;
     color: #2aa12e;
   }
-  /* .right-side-content {
- 
-   flex-direction: column; 
-  } */
 
   h1,
   h2,
