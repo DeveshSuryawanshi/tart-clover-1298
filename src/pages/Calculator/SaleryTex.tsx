@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import ReusiblerightContent from "./ReusiblerightContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-interface TypeOfData {
+import SowAllCalculatedData from "./SowAllCalculatedData";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/Store";
+export interface TypeOfData {
   year: string;
   deductions_salary: number;
   duration: string;
@@ -33,8 +36,10 @@ const initialSaleryData: TypeOfData = {
 const SaleryTex = () => {
   const [sowPerson, setSoPerson] = React.useState(false);
   const [AllData, setAllData] = useState<TypeOfData>(initialSaleryData);
+  const [totalSum,setTotalSum]=useState(0)
+  const [AllDetails,setAllDetails]=useState<null|TypeOfData>(null)
   // const [sowPoster,setSowPoster]=useState(true)
-
+  const {isAuth}=useSelector((state:RootState)=>state.auth)
   let {
     year,
     deductions_salary,
@@ -49,9 +54,20 @@ const SaleryTex = () => {
   } = AllData;
   const handleClick = () => {
     setSoPerson((prev) => !prev);
+
   };
+  // salary_include_raf_value: number;
+  // pay_private_raf_value: number;
+  // monthly_allowance_value: number;
+  const handleAddAllTax=()=>{
+    let sum=(deductions_salary+salary_include_raf_value+pay_private_raf_value+monthly_allowance_value);
+    setAllDetails(AllData)
+    setTotalSum(sum)
+    setAllData(initialSaleryData)
+  }
   return (
     <DIV>
+   
       <ReusebaleCalculator />
       <div className="tax-salary-main">
         <div className="calculate-year">
@@ -298,7 +314,7 @@ const SaleryTex = () => {
                 style={{ backgroundColor: "white" }}
               >
                 <div className="row">
-                  <button className="calculate-btn">CALCULATE</button>
+                  <button onClick={handleAddAllTax} className="calculate-btn">CALCULATE</button>
                 </div>
               </div>
             </div>
@@ -318,8 +334,11 @@ const SaleryTex = () => {
                 </div>
               </div>
             </div>
+           {AllDetails&&<SowAllCalculatedData  AllDetails2={AllDetails} TotalSum={totalSum}/>}
           </div>
-          <ReusiblerightContent />
+          {isAuth?<div className="dummy-image">
+            <img src="https://media.taxtim.com/images/media-za/Twitter-Stories-switch.jpg" alt="" />
+          </div>:<ReusiblerightContent />}
         </div>
       </div>
     </DIV>
@@ -334,13 +353,22 @@ const DIV = styled.div`
     margin: auto;
     border: 0px solid red;
   }
+ 
   .calculate-year {
+    border: 0px solid blue;
     padding: 0.6rem;
     text-align: start;
   }
   .all-containt-main {
     display: flex;
   }
+ 
+ .dummy-image>img{
+  width: 65%;
+  margin:auto;
+  cursor: pointer;
+}
+
   /* className="right-side-content" */
   .left-side-content {
     border: 0px solid red;

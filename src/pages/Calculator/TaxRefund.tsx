@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import ReusiblerightContent from "./ReusiblerightContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-interface TypeOfData {
+import SowAllCalculatedData from "./SowAllCalculatedData";
+import { RootState } from "../../Redux/Store";
+import { useSelector } from "react-redux";
+export interface TypeOfData {
   year: string;
   employerYes:string;
   Gross_Employment_Income:number;
@@ -19,6 +22,14 @@ interface TypeOfData {
   donate:string;
   deductions_salary: number;
   duration: string;
+  hospital_plan: string;
+  hospital_plan_type:string;
+  pocket_medical_expenses:string;
+  expenses:number;
+  work_purposes:string;
+  depreciate:string;
+claim:number;
+travel_expenses:string;
   salary_include_raf: string;
   pay_private_raf: string;
   monthly_allowance: string;
@@ -40,6 +51,14 @@ const initialSaleryData: TypeOfData = {
   Provident_Fund:0,
   Retirement_Annuity:0,
   donate:"No",
+  hospital_plan:"No",
+  hospital_plan_type:"",
+  pocket_medical_expenses:"No",
+  expenses:0,
+  work_purposes:"No",
+  depreciate:"",
+  claim:0,
+  travel_expenses:"No",
   deductions_salary: 20000,
   duration: "",
   salary_include_raf: "",
@@ -56,8 +75,10 @@ const Taxrefund = () => {
   const [otherEncome,setOtherIncome]=useState(false)
   const [deduction,setdeduction]=useState(false)
   const [Taxpaid,setTaxpaid]=useState(false)
+  const [totalAmount,setTotalAmount]=useState(0)
+  const [AllDetails2,setAllDetails2]=useState<null|TypeOfData>(null)
   // const [sowPoster,setSowPoster]=useState(true)
-// console.log(AllData);
+const {isAuth}=useSelector((state:RootState)=>state.auth)
 
   let {
     year,
@@ -72,6 +93,14 @@ const Taxrefund = () => {
     Provident_Fund,
     Retirement_Annuity,
     donate,
+    hospital_plan,
+    hospital_plan_type,
+    pocket_medical_expenses,
+    expenses,
+    travel_expenses,
+    work_purposes,
+    depreciate,
+    claim,
     duration,
     salary_include_raf,
     salary_include_raf_value,
@@ -79,7 +108,7 @@ const Taxrefund = () => {
     pay_private_raf_value,
     monthly_allowance,
     monthly_allowance_value,
-    age,
+    age
   } = AllData;
   const handleClick = () => {
     setSoPerson((prev) => !prev);
@@ -93,6 +122,23 @@ const Taxrefund = () => {
   const handleTaxPaid = () => {
     setdeduction((prev) => !prev);
   };
+  // Other_income:number;
+  // Pension_Fund:number;
+  // Provident_Fund:number;
+  // Retirement_Annuity:number;
+
+  const handleCalculate=()=>{
+let sum=(Gross_Employment_Income+Total_annuity_fund+
+  Other_income+Pension_Fund+Provident_Fund+
+  Retirement_Annuity+expenses+claim)
+  setTotalAmount(sum)
+  setAllDetails2(AllData)
+  setAllData(initialSaleryData)
+  // console.log(Gross_Employment_Income,Total_annuity_fund,
+  //   Other_income,Pension_Fund,Provident_Fund,
+  //   Retirement_Annuity,deductions_salary,expenses,claim);
+
+  }
   return (
     <DIV>
       <ReusebaleCalculator />
@@ -249,7 +295,7 @@ const Taxrefund = () => {
                           Total_annuity_fund: +e.target.value,
                         }))
                       }
-                      type="text"
+                      type="number"
                       className="wide"
                       id="gross"
                       value={Total_annuity_fund}
@@ -318,7 +364,7 @@ const Taxrefund = () => {
                     </div>
                     {`R`}
                       <input
-                        maxLength={8}
+                        maxLength={12}
                         onChange={(e) =>
                           setAllData((prev) => ({
                             ...prev,
@@ -338,7 +384,7 @@ const Taxrefund = () => {
                     </div>
                     {`R`}
                       <input
-                        maxLength={8}
+                        // maxLength={8}
                         onChange={(e) =>
                           setAllData((prev) => ({
                             ...prev,
@@ -364,7 +410,7 @@ const Taxrefund = () => {
                             Other_income: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
                         value={Other_income}
@@ -515,7 +561,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                             Pension_Fund: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
                         value={Pension_Fund}
@@ -532,7 +578,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                             Provident_Fund: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
                         value={Provident_Fund}
@@ -552,7 +598,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                             Retirement_Annuity: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
                         value={Retirement_Annuity}
@@ -583,7 +629,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                   </div>
                   {donate == "Yes" && (
                     <div className="row">
-                      {`→ Please enter the total amount:   `}
+                      {`Please enter the total amount you donated. You must have a certificate!  R    `}
                       
                       <input
                         maxLength={8}
@@ -593,7 +639,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                             salary_include_raf_value: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
                         value={salary_include_raf_value}
@@ -610,38 +656,38 @@ If you paid for any of these yourself then you should have a monthly account or 
                       onChange={(e) =>
                         setAllData((prev) => ({
                           ...prev,
-                          pay_private_raf: e.target.value,
+                          hospital_plan: e.target.value,
                         }))
                       }
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
-                      value={pay_private_raf}
+                      value={hospital_plan}
                     >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {pay_private_raf == "Yes" && (
+                  {hospital_plan == "Yes" && (
                     <div className="row">
-                      {`→ Please enter the total amount:   `}
+                      {`→ Please enter the : (hospital_plan)   `}
                       <input
-                        maxLength={8}
+                        // maxLength={8}
                         onChange={(e) =>
                           setAllData((prev) => ({
                             ...prev,
-                            pay_private_raf_value: +e.target.value,
+                            hospital_plan_type: e.target.value,
                           }))
                         }
                         type="text"
                         className="wide"
                         id="gross"
-                        value={pay_private_raf_value}
+                        value={hospital_plan_type}
                       />
                     </div>
                   )}
                   <div className="row">
-                    {`Does your salary include money for a travel allowance?   `}
+                    {`Did you have any out of pocket medical expenses?  `}
                     {/* <div className="font-question">
                     <FontAwesomeIcon icon={faQuestion} />
                     </div> */}
@@ -650,33 +696,33 @@ If you paid for any of these yourself then you should have a monthly account or 
                       onChange={(e) =>
                         setAllData((prev) => ({
                           ...prev,
-                          pay_private_raf: e.target.value,
+                          pocket_medical_expenses: e.target.value,
                         }))
                       }
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
-                      value={pay_private_raf}
+                      value={pocket_medical_expenses}
                     >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {pay_private_raf == "Yes" && (
+                  {pocket_medical_expenses == "Yes" && (
                     <div className="row">
-                      {`→ Please enter the total amount:   `}
+                      {`Please enter only the expenses that your medical aid did not pay for: R `}
                       <input
                         maxLength={8}
                         onChange={(e) =>
                           setAllData((prev) => ({
                             ...prev,
-                            pay_private_raf_value: +e.target.value,
+                            expenses: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
-                        value={pay_private_raf_value}
+                        value={expenses}
                       />
                     </div>
                   )}
@@ -690,33 +736,31 @@ If you paid for any of these yourself then you should have a monthly account or 
                       onChange={(e) =>
                         setAllData((prev) => ({
                           ...prev,
-                          pay_private_raf: e.target.value,
+                          work_purposes: e.target.value,
                         }))
                       }
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
-                      value={pay_private_raf}
+                      value={work_purposes}
                     >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {pay_private_raf == "Yes" && (
+                  {work_purposes == "Yes" && (
                     <div className="row">
-                      {`→ Please enter the total amount:   `}
+                      {`You can depreciate their value to reduce your tax.
+See our Wear and Tear calculator to see how much you can depreciate: R   `}
                       <input
-                        maxLength={8}
+                        // maxLength={8}
                         onChange={(e) =>
-                          setAllData((prev) => ({
-                            ...prev,
-                            pay_private_raf_value: +e.target.value,
-                          }))
+                          setAllData((prev) => ({ ...prev ,depreciate:e.target.value}))
                         }
                         type="text"
                         className="wide"
                         id="gross"
-                        value={pay_private_raf_value}
+                        value={depreciate}
                       />
                     </div>
                   )}
@@ -729,33 +773,33 @@ If you paid for any of these yourself then you should have a monthly account or 
                       onChange={(e) =>
                         setAllData((prev) => ({
                           ...prev,
-                          monthly_allowance: e.target.value,
+                          travel_expenses: e.target.value,
                         }))
                       }
                       style={{ width: "160px" }}
                       className="wide"
                       id="period"
-                      value={monthly_allowance}
+                      value={travel_expenses}
                     >
                       <option value="no">No</option>
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {monthly_allowance == "Yes" && (
+                  {travel_expenses == "Yes" && (
                     <div className="row">
-                      {`→ Please enter the total amount:   `}
+                      {`Use our Travel Deduction calculator to see how much you can claim: R  `}
                       <input
                         maxLength={8}
                         onChange={(e) =>
                           setAllData((prev) => ({
                             ...prev,
-                            monthly_allowance_value: +e.target.value,
+                            claim: +e.target.value,
                           }))
                         }
-                        type="text"
+                        type="number"
                         className="wide"
                         id="gross"
-                        value={monthly_allowance_value}
+                        value={claim}
                       />
                     </div>
                   )}
@@ -783,16 +827,16 @@ If you paid for any of these yourself then you should have a monthly account or 
                     <br />
                     <input style={{width:"80px"}}
                         maxLength={8}
-                        onChange={(e) =>
-                          setAllData((prev) => ({
-                            ...prev,
-                            salary_include_raf_value: +e.target.value,
-                          }))
-                        }
+                        // onChange={(e) =>
+                        //   setAllData((prev) => ({
+                        //     ...prev,
+                        //     salary_include_raf_value: +e.target.value,
+                        //   }))
+                        // }
                         type="text"
                         className="wide"
                         id="gross"
-                        value={salary_include_raf_value}
+                        // value={salary_include_raf_value}
                       />
                   </div>
                   <div className="row">
@@ -803,17 +847,17 @@ If you paid for any of these yourself then you should have a monthly account or 
                     {`  R `}
                     <br />
                     <input style={{width:"80px"}}
-                        maxLength={8}
-                        onChange={(e) =>
-                          setAllData((prev) => ({
-                            ...prev,
-                            salary_include_raf_value: +e.target.value,
-                          }))
-                        }
+                        // maxLength={8}
+                        // onChange={(e) =>
+                        //   setAllData((prev) => ({
+                        //     ...prev,
+                        //     salary_include_raf_value: +e.target.value,
+                        //   }))
+                        // }
                         type="text"
                         className="wide"
                         id="gross"
-                        value={salary_include_raf_value}
+                        // value={salary_include_raf_value}
                       />
                   </div>
                   {/* {salary_include_raf == "Yes" && (
@@ -922,15 +966,16 @@ If you paid for any of these yourself then you should have a monthly account or 
                 <div className="row">
                   {`Your age?  `}
                   <input
-                    maxLength={2}
+                    min="2" max="3"
                     onChange={(e) =>
                       setAllData((prev) => ({ ...prev, age: +e.target.value }))
                     }
-                    type="text"
+                    type="number"
                     className="wide"
                     id="gross"
                     value={age}
                   />
+        
                 </div>
               </div>
               <div className="age-box grey" style={{padding:"0px"}} >
@@ -940,7 +985,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                     <FontAwesomeIcon icon={faQuestion} />
                     </div>
                   <input
-                    maxLength={2}
+                   
                     // onChange={(e) =>
                     //   setAllData((prev) => ({ ...prev, age: +e.target.value }))
                     // }
@@ -961,10 +1006,12 @@ If you paid for any of these yourself then you should have a monthly account or 
                 style={{ backgroundColor: "white" }}
               >
                 <div className="row">
-                  <button className="calculate-btn">SO MY REFUND STIMATION!</button>
+                  <button onClick={handleCalculate} className="calculate-btn">SO MY REFUND STIMATION!</button>
                 </div>
               </div>
             </div>
+
+         {AllDetails2&&<SowAllCalculatedData AllDetails2={AllDetails2} TotalSum={totalAmount} />}
             {/* <div
               className="calc-details"
               style={{ backgroundColor: "white", textAlign: "start" }}
@@ -982,7 +1029,10 @@ If you paid for any of these yourself then you should have a monthly account or 
               </div>
             </div> */}
           </div>
-          <ReusiblerightContent />
+         {isAuth?<div className="dummy-image">
+          <img src="https://media.taxtim.com/images/media-za/Twitter-Stories-switch.jpg" alt="" />
+         </div>:
+        <ReusiblerightContent />}
         </div>
       </div>
     </DIV>
@@ -997,6 +1047,11 @@ const DIV = styled.div`
     margin: auto;
     border: 0px solid red;
   }
+ .dummy-image>img{
+  width: 65%;
+  margin:auto;
+ cursor: pointer;
+}
   .calculate-year {
     padding: 0.6rem;
     text-align: start;

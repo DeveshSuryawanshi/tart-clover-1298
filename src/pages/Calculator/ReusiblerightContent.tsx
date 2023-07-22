@@ -73,7 +73,7 @@ const ReusiblerightContent = () => {
 
       {/* -- */}
       <div className="start-btn">
-        <Link className="get-start-btn" to="#">
+        <Link className="get-start-btn" to="/login">
           GET STARTED
         </Link>
       </div>
@@ -83,11 +83,13 @@ const ReusiblerightContent = () => {
 
 export default ReusiblerightContent;
 const DIV= styled.div`
+/* visibility: hidden; */
      font-size: 16px;
     border: 0px solid red;
     text-align: start;
     padding: 20px;
     display: flex;
+/* display: none; */
     flex-direction: column;
     gap: 20px;
     font-family: "Droid Sans", Arial, sans-serif;
@@ -96,6 +98,7 @@ const DIV= styled.div`
     color: #4d4d4d;
 
     .dummy-image {
+      /* display: none; */
     display: flex;
     border: 0px solid red;
     /* justify-content: space-around; */
@@ -107,9 +110,14 @@ const DIV= styled.div`
     background-color: #444444;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
       0 1px 5px 0 rgb(0 0 0 / 20%);
-    border-radius: 2px;
+    border-radius: 4px;
     border: 2px solid #444444;
     font-family: "Montserrat", Arial, sans-serif;
+  }
+  .get-start-btn:hover{
+    background-color: white;
+    color: black;
+    box-shadow:none;
   }
   ul {
     margin: 20px;
