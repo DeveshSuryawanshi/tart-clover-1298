@@ -2,11 +2,12 @@ import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import thunk from 'redux-thunk';
 import { reducer as authReducer } from "./AuthReducer/reducer";
 import blogReducer from "../pages/Blogs/store/reducers/blogReducer";
-
+import { StateType } from 'typesafe-actions';
 const rootReducer = combineReducers({
   blog: blogReducer,
-authReducer
+  auth: authReducer,
 })
+export type RootState = StateType<typeof rootReducer>;
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
 

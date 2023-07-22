@@ -10,7 +10,7 @@ const BlogPage: React.FC = () => {
     const blogPosts = useSelector((state: RootState) => state.blog.blogPosts);
 
     useEffect(() => {
-        dispatch(fetchBlogPosts());
+        // dispatch(fetchBlogPosts());
     }, [dispatch]);
 
     return (

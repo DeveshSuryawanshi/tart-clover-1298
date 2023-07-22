@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from './Login.module.css';
 import backgroundImage from '../image/login.jpg';
 import { GoogleLogin } from '@react-oauth/google';
@@ -12,7 +12,7 @@ import { googleLogout } from '@react-oauth/google';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 import { Card, Avatar, CardBody, CardFooter ,Image,Stack,Heading,Text,Divider,ButtonGroup,Button} from '@chakra-ui/react'
-
+import { useToast } from '@chakra-ui/react'
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,14 +32,35 @@ export const Login = () => {
   //   isError: boolean;
   // }
 const navigate=useNavigate()
+const toast = useToast()
   const { isAuth } = useSelector((state: RootState) => state.auth);
   const { userData } = useSelector((state: RootState) => state.auth);
-  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+  // const [isLoading, setIsLoading] = useState(false);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    login(dispatch, email, password);
-    navigate("/")
+   
+
+    try {
+      await login(dispatch, email, password);
+      if (isAuth) {
+        navigate('/');}
+        
+   
+    } catch (error) {
+      console.error('Error during login:', error);
+      toast({
+        title: 'Wrong Credentials..',
+        description: 'Check your Email or Password',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+
+ 
   };
+
+  
   console.log(isAuth)
   console.log(userData)
   const handleLogout=()=>{
@@ -47,6 +68,13 @@ const navigate=useNavigate()
     dispatch({type:LOGIN_SUCCESS_LOGOUT})
   }
 
+    if (isAuth) {
+      navigate('/');
+    }
+  
+const handleRegister=()=>{
+  navigate("/register")
+}
   return (
     <div className={styles["login-page"]}>
       <div className={styles["background-image"]} style={{ backgroundImage: `url(${backgroundImage})` }} />
@@ -64,7 +92,6 @@ const navigate=useNavigate()
             value={email}
             onChange={handleInputChange}
           />
-          <br />
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -74,7 +101,7 @@ const navigate=useNavigate()
             value={password}
             onChange={handleInputChange}
           />
-          <br />
+        
         <GoogleLogin
             onSuccess={(credentialResponse) => {
               const details:any = jwt_decode(credentialResponse.credential as string);
@@ -92,11 +119,12 @@ const navigate=useNavigate()
             }}
           />
           
-          <br />
+         
           {!isAuth&&<button type="submit" className={styles["login-button"]}>
             LOGIN TO MY ACCOUNT
           </button>}
-         { isAuth&&<button className={styles["login-button"]} onClick={handleLogout}>Logout</button>}
+        
+         <button className={styles["login-button"]} onClick={handleRegister}>REGISTER</button>
         </form>
 
 

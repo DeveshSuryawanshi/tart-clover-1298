@@ -52,14 +52,15 @@
   
   .login-button {
     width: 200px;
-    height: 40px;
-    font-size: 16px;
+    height: 30px;
+    font-size: 14px;
     font-weight: bold;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+   margin-top: 10px;
   }
   
   .login-button:hover {
