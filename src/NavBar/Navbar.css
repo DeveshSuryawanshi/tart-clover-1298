@@ -53,6 +53,12 @@
     height: 100%;
     margin-left: 200px;
   }
+
+  .top-nav-III>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .anch {
     color: rgb(2, 0, 0);
@@ -79,6 +85,11 @@
     border: 2px solid #2AA12E;
     background-color: #2AA12E;
     border-radius: 5px;
+    padding: 20px 20px;
+    text-align: center;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Media query for medium-sized screens */

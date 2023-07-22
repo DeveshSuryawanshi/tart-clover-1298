@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
+import { RootState } from "../../Redux/Store";
 
 export const Calculator = () => {
-  const [isAuth, setIsAuth] = useState<boolean>(true);
+  const isAuth = useSelector((store : RootState) => store.auth.isAuth);
 
   return (
     <DIV>
