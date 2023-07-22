@@ -1,12 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Blogs from "../pages/Blogs/BlogPage";
 import { Calculator } from "../pages/Calculator/Calculator";
 import { HomeOfficeCalculator } from "../pages/Calculator/Components/HomeOfficeCalculator";
 import SaleryTex from "../pages/Calculator/SaleryTex";
 import { Contact } from "../pages/Contact/Contact";
 import { Faq } from "../pages/FAQ/Faq";
-// import { HomePage } from "../pages/HomePage/HomePage";
+import BlogPage from '../pages/Blogs/BlogPage';
 import { Login } from "../pages/Login/Login";
 import HomePage from "../pages/HomePage/HomePage";
 
@@ -16,8 +15,9 @@ export const MainRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/calculator" element={<Calculator />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/blogs" element={<Blogs />} />
+      {/* <Route path="/blogs" element={<Blogs />} /> */}
       <Route path="/login" element={<Login />} />
+      <Route path="/blogs" element={<BlogPage />} />
       <Route path="/faq" element={<Faq />} />
       {/* Calculator Routes */}
       <Route path="/SalaryTax" element={<SaleryTex />} />
