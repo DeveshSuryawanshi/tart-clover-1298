@@ -59,7 +59,7 @@ export const Footer = () => {
                     <a href="get-started?register">Register for TaxTim</a>
                     <a href="blog/">TaxTim Blog</a>
                     <a href="free-tax-season-reminders">Tax Season Alerts</a>
-                    <a href="contact-us">Contact Us</a>
+                    <a href="/contact">Contact Us</a>
                   </div>
                 </div>
               </div>
