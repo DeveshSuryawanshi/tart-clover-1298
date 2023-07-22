@@ -31,15 +31,11 @@ export const HomeOfficeCalculator = () => {
   const [total, setTotal] = useState<number>(0)
 
   useEffect(()=>{
-    let sum = 0;
-
-    for(let key in allInputVal){
-      // console.log(allInputVal[key]);
-      
-    }
-
+    let sum = allInputVal.Rental + allInputVal.Electricity + allInputVal.RatesandTaxes + allInputVal.Cleaning + allInputVal.Insurance + allInputVal.Levy + allInputVal.RepairsandMaintenance + allInputVal.Security + allInputVal.Lowvalueofficeequipment;
+    setTotal(sum);
   },[allInputVal])
   
+  console.log(total);
 
 
   return (
@@ -89,41 +85,41 @@ export const HomeOfficeCalculator = () => {
                   </div>
                   <div className="input">
                     <p className="inpHeading">Electricity❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, Electricity : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Rates and Taxes❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, RatesandTaxes : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Cleaning❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, Cleaning : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Insurance❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, Insurance : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Levy❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, Levy : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Repairs and Maintenance❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, RepairsandMaintenance : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Security❓</p>
-                    <input type="number" />
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, Security : +e.target.value}))} />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Low value office equipment❓</p>
-                    <input type="number" />
-                  </div>
+                    <input type="number" onChange={(e) => setallInputVal((prev) => ({...prev, Lowvalueofficeequipment : +e.target.value}))} />
+                  </div> 
                   <div className="input">
                     <p className="inpHeading">
                       Wear and tear on office equipment❓
                     </p>
-                    <input type="number" />
+                    <input type="number"  />
                   </div>
                   <div className="input">
                     <p className="inpHeading">Other expenses❓</p>
