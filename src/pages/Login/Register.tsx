@@ -29,7 +29,8 @@ const Register = () => {
         const newUser={
             email,
             password,
-            username
+            username,
+            image:"https://acdsinc.org/wp-content/uploads/2015/12/dummy-profile-pic.png"
         }
 upDate(dispatch,newUser).then(()=>{
 
