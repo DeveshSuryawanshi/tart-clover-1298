@@ -22,8 +22,7 @@ export const fetchBlogPosts = () => async (dispatch: Dispatch<AnyAction>) => {
         const response = await axios.get<BlogPost[]>("http://localhost:8080/blogPosts");
         dispatch(fetchBlogPostsSuccess(response.data));
     } catch (error: any) {
-        console.error("Error fetching blog posts:", error);
+        // console.error("Error fetching blog posts:", error);
         dispatch(fetchBlogPostsError(error.message));
     }
 };
-``
