@@ -1,0 +1,50 @@
+.cont2 {
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    width: 180px;
+    font-size: large;
+    font-weight: 600;
+    color: #6a5b55;
+    margin-left: 20px;
+}
+
+img {
+    width: 110px;
+    margin-left: 20px;
+}
+
+.h3 {
+    margin-top: 10px;
+}
+
+.rightSvg {
+    width: 20px;
+    margin-right: 5px;
+}
+
+li {
+    display: flex;
+    margin: 5px;
+}
+
+ul {
+    margin: 20px;
+}
+
+.desk {
+    width: 300px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+button {
+    margin-left: 20px;
+    padding: 5px 20px;
+    background-color: #e44b33;
+    color: white;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

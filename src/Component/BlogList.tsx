@@ -4,6 +4,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { BlogPost } from '../Redux/BlogReducer/reducer';
 import { fetchBlogPosts } from '../Redux/BlogReducer/actions';
+import styles from './BlogList.module.css'; // Import the CSS module
 
 const BlogList: React.FC = () => {
     const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
@@ -15,11 +16,13 @@ const BlogList: React.FC = () => {
 
     return (
         <div>
-            <ul>
+            <ul className={styles.listContainer}>
+                <h1>Latest Posts in TaxTim's Blog :</h1>
+
                 {blogPosts.map((post: BlogPost) => (
-                    <li key={post.id}>
+                    <li key={post.id} className={styles.listItem}>
                         <h3>{post.title}</h3>
-                        <p>Date: {post.date}</p>
+                        <h4> {post.date}</h4>
                         <img src={post.image} alt={post.title} />
                         <p>{post.description}</p>
                     </li>
@@ -28,5 +31,6 @@ const BlogList: React.FC = () => {
         </div>
     );
 };
+
 
 export default BlogList;
