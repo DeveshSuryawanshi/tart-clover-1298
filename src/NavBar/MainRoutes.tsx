@@ -9,7 +9,7 @@ import BlogPage from '../pages/Blogs/BlogPage';
 import { Login } from "../pages/Login/Login";
 import HomePage from "../pages/HomePage/HomePage";
 import Taxrefund from "../pages/Calculator/TaxRefund";
-// import Admin from "../pages/Admin/Admin";
+import Admin from "../pages/Admin/Admin";
 import Register from "../pages/Login/Register";
 
 export const MainRoutes = () => {
