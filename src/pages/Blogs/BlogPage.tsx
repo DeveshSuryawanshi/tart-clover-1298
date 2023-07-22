@@ -1,28 +1,20 @@
-// src/components/BlogPage.tsx
-
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchBlogPosts } from "./store/actions/blogActions";
-import { RootState } from "../../Redux/Store";
+import React, { useEffect } from 'react';
+import BlogList from '../../Component/BlogList';
+import { useDispatch } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { fetchBlogPosts } from '../../Redux/BlogReducer/actions';
 
 const BlogPage: React.FC = () => {
-    const dispatch = useDispatch();
-    const blogPosts = useSelector((state: RootState) => state.blog.blogPosts);
+    const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
 
     useEffect(() => {
-        // dispatch(fetchBlogPosts());
+        dispatch(fetchBlogPosts());
     }, [dispatch]);
 
     return (
         <div>
-            {blogPosts.map((post: any) => (
-                <div key={post.id}>
-                    <h2>{post.title}</h2>
-                    <p>{post.date}</p>
-                    <img src={post.image} alt={post.title} />
-                    <p>{post.description}</p>
-                </div>
-            ))}
+            <BlogList />
         </div>
     );
 };
