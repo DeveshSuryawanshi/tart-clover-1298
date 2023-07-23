@@ -38,11 +38,13 @@ export const Calculator = () => {
               </Link>
             </div>
             <div className="child">
+            <Link to ={"/TaxRefund"}>
               <img
                 src="https://media.taxtim.com/images/calc-lump-sum.png"
                 alt="error"
               />
               <p className="overlay">Retirement Lump Sum</p>
+              </Link>
             </div>
             <div className="child">
               <img
@@ -52,11 +54,13 @@ export const Calculator = () => {
               <p className="overlay">Travel Deduction</p>
             </div>
             <div className="child">
+            <Link to={"/SalaryTax"}>
               <img
                 src="https://media.taxtim.com/images/calc-capital-gains.png"
                 alt="error"
               />
               <p className="overlay">Capital Gains Tax</p>
+              </Link>
             </div>
             <div className="child">
               <img
