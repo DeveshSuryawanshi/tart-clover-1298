@@ -11,12 +11,27 @@ import { LOGIN_SUCCESS, LOGIN_SUCCESS_LOGOUT } from '../../Redux/actionType';
 import { googleLogout } from '@react-oauth/google';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-import { Card, Avatar, CardBody, CardFooter ,Image,Stack,Heading,Text,Divider,ButtonGroup,Button} from '@chakra-ui/react'
+import { Card, Avatar, CardBody, CardFooter ,useDisclosure,Stack,Heading,Text,Divider,ButtonGroup,Button} from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  FormControl,FormLabel,Input
+} from '@chakra-ui/react'
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const initialRef = React.useRef(null)
+  const finalRef = React.useRef(null)
+
 
   const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -36,6 +51,8 @@ const toast = useToast()
   const { isAuth } = useSelector((state: RootState) => state.auth);
   const { userData } = useSelector((state: RootState) => state.auth);
   const { isAdmin } = useSelector((state: RootState) => state.auth);
+
+  const [url,setUrl]=useState("")
   // const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,13 +87,43 @@ const toast = useToast()
     dispatch({type:LOGIN_SUCCESS_LOGOUT})
   }
 
-    if (isAuth) {
-      navigate('/');
-    }
+    // if (isAuth) {
+    //   navigate('/');
+    // }
   
 const handleRegister=()=>{
   navigate("/register")
 }
+const handleSave = () => {
+  const data = {
+    image: url,
+  };
+
+  axios
+    .patch(`https://cw-project-rct101.onrender.com/users/${userData.id}`, data)
+    .then((res) => {
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      onClose(); // Close the modal on successful patch
+      toast({
+        title: "Profile Image Updated",
+        description: "Your profile image has been updated successfully.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    })
+    .catch((error) => {
+      console.error("Error updating image:", error);
+      toast({
+        title: "Error",
+        description: "An error occurred while updating your profile image.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    });
+};
+
   return (
     <div className={styles["login-page"]}>
       <div className={styles["background-image"]} style={{ backgroundImage: `url(${backgroundImage})` }} />
@@ -132,7 +179,9 @@ const handleRegister=()=>{
 
       </div>}
 
-      {isAuth&&<Card maxW='sm'marginRight={"30px"} >
+      {isAuth&&   <div> 
+
+      <Card maxW='sm'marginRight={"30px"} >
   <CardBody>
   <Avatar size='2xl' name={userData.username} src={userData.image} />{' '}
    
@@ -148,13 +197,41 @@ const handleRegister=()=>{
       <Button variant='solid' colorScheme='blue' onClick={handleLogout}>
        Logout
       </Button>
-      <Button variant='solid' colorScheme='blue' >
+      <Button variant='solid' colorScheme='blue' onClick={onOpen}>
         Edit Profile
       </Button>
     </ButtonGroup>
   </CardFooter>
-</Card>}
+</Card>
+<Modal
+         initialFocusRef={initialRef}
+         finalFocusRef={finalRef}
+         isOpen={isOpen}
+         onClose={onClose}
+        >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Edite your Profile</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>Image URL</FormLabel>
+              <Input ref={initialRef} placeholder='Image URL' onChange={(e)=>{setUrl(e.target.value)}} />
+            </FormControl>
 
+           
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={handleSave}>
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+        </div>
+      }
     </div>
   );
 };

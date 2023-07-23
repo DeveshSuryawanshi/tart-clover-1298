@@ -11,7 +11,7 @@ export const login = async (dispatch: Dispatch, email: string, password: string)
     const user = res.data.find((el: { email: string; password: string }) => el.email === email && el.password === password);
 
     if (user) {
-      dispatch({ type: LOGIN_SUCCESS, payload: { email: email, username: user.username, image: user.image } });
+      dispatch({ type: LOGIN_SUCCESS, payload: { email: email, username: user.username, image: user.image ,id:user.id} });
     } else {
       // Reject the promise if the credentials don't match
       dispatch({ type: LOGIN_FAILURE });
