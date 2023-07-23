@@ -11,6 +11,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import Taxrefund from "../pages/Calculator/TaxRefund";
 import Admin from "../pages/Admin/Admin";
 import Register from "../pages/Login/Register";
+import BlogForm from "../pages/Admin/BlogForm";
 
 export const MainRoutes = () => {
   return (
@@ -20,7 +21,7 @@ export const MainRoutes = () => {
       <Route path="/contact" element={<Contact />} />
 
       <Route path="/admin" element={<Admin />} />
-
+<Route path="/blogForm" element={<BlogForm/>}/>
  
       <Route path="/login" element={<Login />} />
       <Route path="/faq" element={<Faq />} />

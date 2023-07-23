@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, Stack, StackDivider, VStack } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 interface SideProps {
   setUser: React.Dispatch<React.SetStateAction<boolean>>;
   setBlog: React.Dispatch<React.SetStateAction<boolean>>;
+  isBlog:boolean;
 }
 
-const Side = ({ setUser, setBlog }: SideProps) => {
-
+const Side = ({ setUser, setBlog ,isBlog}: SideProps) => {
+const navigate=useNavigate()
   const handleBlog=()=>{
     setBlog(true);
     setUser(false)
@@ -16,6 +18,9 @@ const Side = ({ setUser, setBlog }: SideProps) => {
     setUser(true);
     setBlog(false);
   }
+  const handleForm=()=>[
+    navigate("/blogForm")
+  ]
   return (
     <div>
       <VStack divider={<StackDivider borderColor='gray.200' />} spacing={4} align='center'>
@@ -25,6 +30,7 @@ const Side = ({ setUser, setBlog }: SideProps) => {
         <Button colorScheme='teal' onClick={handleBlog}>
           Blog Data
         </Button>
+{isBlog&&<Button onClick={handleForm}>Add Post</Button>}
       </VStack>
     </div>
   );

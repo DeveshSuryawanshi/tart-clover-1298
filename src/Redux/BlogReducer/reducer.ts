@@ -41,6 +41,30 @@ const blogReducer = (state = initialState, action: any): BlogState => {
                 loading: false,
                 error: action.payload,
             };
+            case "DELETE_BLOG_REQUEST":
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+
+    case "DELETE_BLOG_SUCCESS":
+      const updatedBlogPosts = state.blogPosts.filter(
+        (post) => post.id !== action.payload
+      );
+      return {
+        ...state,
+        blogPosts: updatedBlogPosts,
+        loading: false,
+        error: null,
+      };
+
+    case "DELETE_BLOG_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
         default:
             return state;
     }

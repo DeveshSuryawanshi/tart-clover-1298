@@ -23,7 +23,7 @@ export const fetchBlogPosts = () => {
         dispatch(fetchBlogPostsRequest());
 
         axios
-            .get('http://localhost:8080/blogPosts')
+            .get('https://blogposts-rn01.onrender.com/blogPosts')
             .then((response) => {
                 const blogPostsData: BlogPost[] = response.data;
                 dispatch(fetchBlogPostsSuccess(blogPostsData));
@@ -33,3 +33,35 @@ export const fetchBlogPosts = () => {
             });
     };
 };
+
+export const deleteBlogRequest = () => ({
+    type: "DELETE_BLOG_REQUEST"
+  });
+  
+  export const deleteBlogSuccess = (id: number) => ({
+    type:" DELETE_BLOG_SUCCESS",
+    payload: id,
+  });
+  
+  export const deleteBlogFailure = (error: string) => ({
+    type: "DELETE_BLOG_FAILURE",
+    payload: error,
+  });
+  
+  // export const deleteBlog = (id: number) => {
+  //   return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+  //     dispatch(deleteBlogRequest());
+  
+  //     try {
+  //       await axios.delete(`https://blogposts-rn01.onrender.com/blogPosts/${id}`);
+  //       dispatch(deleteBlogSuccess(id));
+  //     } catch (error) {
+  //       // dispatch(deleteBlogFailure(error.message));
+  //     }
+  //   };
+  // };
+  export const deleteBlog= async(id:Number)=>{
+    let res= await axios.delete(`https://blogposts-rn01.onrender.com/blogPosts/${id}`)
+    return res
+
+  }
