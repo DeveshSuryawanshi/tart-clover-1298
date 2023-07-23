@@ -731,7 +731,7 @@ const DIV = styled.div`
   }
   .all-containt-main {
     display: flex;
-    border: 2px solid green;
+    border: 0px solid green;
   }
   /* className="right-side-content" */
   .left-side-content {
