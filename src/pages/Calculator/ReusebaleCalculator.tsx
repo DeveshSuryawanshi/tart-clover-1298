@@ -51,8 +51,8 @@ const DIV = styled.div`
     text-align: start;
     border: 0px solid red;
   }
-  .random-img {
-  }
+  /* .random-img {
+  } */
   .Switch-to-TaxTim {
     /* display:flex; */
     margin-bottom: 0.6rem;
@@ -95,4 +95,15 @@ const DIV = styled.div`
     background-color: #c52b2b;
     border: none;
   }
+  @media (max-width: 475px) {
+    .random-img {
+   display: none;
+  } 
+  }
+  @media (max-width: 772px) {
+    img {
+   width: 70%;
+  } 
+  }
+
 `;

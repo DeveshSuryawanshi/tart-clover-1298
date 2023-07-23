@@ -98,7 +98,7 @@ const SaleryTex = () => {
                         }))
                       }
                       id="yearsel"
-                      className="wide"
+                      className="select-year-option"
                       value={year}
                     >
                       <option value="2024">2024 (Mar 2023 - Feb 2024)</option>
@@ -122,7 +122,7 @@ const SaleryTex = () => {
                         }))
                       }
                       type="text"
-                      className="wide"
+                      className="select-year-option"
                       id="gross"
                       value={deductions_salary}
                     />
@@ -296,7 +296,7 @@ const SaleryTex = () => {
                       setAllData((prev) => ({ ...prev, age: +e.target.value }))
                     }
                     type="text"
-                    className="wide"
+                    className="select-year-option"
                     id="gross"
                     value={age}
                   />
@@ -328,7 +328,7 @@ const SaleryTex = () => {
               >
                 <div className="row" style={{ justifyContent: "start" }}>
                   {`Want this calculator on your website?  `}
-                  <Link to="#" className="veiw-tax">
+                  <Link to="/faq" className="veiw-tax">
                     View tax widgets
                   </Link>
                 </div>
@@ -451,6 +451,7 @@ const DIV = styled.div`
     font-size: 1.3em;
     margin: 1.5rem 0rem 0px;
     gap: 1rem;
+    align-items: center;
 
     text-align: left;
   }
@@ -489,4 +490,13 @@ const DIV = styled.div`
   h2 {
     font-size: 1.5rem;
   }
+  @media (max-width: 575px) {
+    .all-containt-main {
+     flex-direction: column;
+    }
+    .select-year-option{
+      width: 200px;
+    }
+  }
+   
 `;
