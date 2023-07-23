@@ -24,9 +24,11 @@ export const Navbar = () => {
       <div className="mainContainer">
         <div className="child1">
           <div className="logoDiv">
-            <h1 className="imgLogo">
-              Tax <span className="spanTax">Tim</span>
-            </h1>
+            <Link to={"/"}>
+              <h1 className="imgLogo">
+                Tax <span className="spanTax">Tim</span>
+              </h1>
+            </Link>
           </div>
           <div className="Links">
             <Link className="link" to={"/"}>
@@ -56,8 +58,10 @@ export const Navbar = () => {
           <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
             <DrawerOverlay />
             <DrawerContent bg={"#86c5ce"}>
-              <DrawerCloseButton  color={"white"} mt={"3"}/>
-              <DrawerHeader color={"white"} fontSize={"25"}>Save Tax</DrawerHeader>
+              <DrawerCloseButton color={"white"} mt={"3"} />
+              <DrawerHeader color={"white"} fontSize={"25"}>
+                Save Tax
+              </DrawerHeader>
               <div className="drawLinks">
                 <Link className="link2" to={"/"}>
                   Home
@@ -82,4 +86,3 @@ export const Navbar = () => {
     </>
   );
 };
-
