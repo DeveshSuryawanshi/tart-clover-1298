@@ -1,6 +1,7 @@
 import React from "react";
 import LapImg from "../HomePage/Screenshot (371).png"
 import HomePageImg from "../image/login.jpg"
+import youtube from "../HomePage/Youtube-removebg-preview.png"
 import  "./HomePage.css"
 
 import { useState } from "react";
@@ -11,7 +12,7 @@ const HomePage = () => {
     input3: "",
     input4: "",
   });
-
+const [play,setplay]=useState(false)
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -24,6 +25,7 @@ const HomePage = () => {
     console.log(formData);
     alert ("SignUp SuccesFully")
   };
+
   return (
     <>
       <div className="container gradient-background ">
@@ -36,7 +38,7 @@ const HomePage = () => {
             </h3>
           </div>
         </div>
-        <div className="form-container">
+        {/* <div className="form-container">
           <h2 className="h3tag">
             Sign up for the easy
             <br /> way to do tax returns.
@@ -82,7 +84,16 @@ const HomePage = () => {
           <p className="ptag">
             By submitting this form I agree to TaxTim's Terms.
           </p>
-        </div>
+        </div> */}
+
+<div className="form-container">
+ {play?<iframe width="370" height="251" src="https://www.youtube.com/embed/nAFLsldyJfs" title="Have you filed your tax return? This neat tool could maximize your SARS refund" frameborder="0" 
+ allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>:<img style={{width:"370px", height:"201px",marginTop:"20px"}} src={youtube} alt="youtub" onClick={()=>setplay(true)} />}
+
+
+</div>
+
         {/* seconde section */}
 
         <div className="section2">

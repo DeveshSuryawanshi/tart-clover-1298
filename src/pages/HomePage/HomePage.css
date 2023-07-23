@@ -22,10 +22,11 @@
     right: 100px;
     text-align: left;
     gap: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
     padding: 15px;
     height: 450px;
     border-radius: 10px;
+    margin-top: 20px;
   }
   
   input {
@@ -172,6 +173,11 @@
     margin-top: 25px;
     margin-bottom: 25px;
   }
+
+
+
+  /* ++++++++++ */
+  
   
   /* Media Queries for responsiveness */
   
@@ -181,6 +187,7 @@
       margin-top: 20px;
       right: auto;
       width: 100%;
+      display: none;
     }
     
     .form-container button {
@@ -209,6 +216,7 @@
     .form-container {
       padding: 10px;
       height: auto;
+      display: none;
     }
   
     .img-container2 {
