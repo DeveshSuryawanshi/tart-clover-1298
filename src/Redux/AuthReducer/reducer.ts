@@ -18,7 +18,7 @@ export const reducer = (state = initialState, action: { type: string,payload:dat
     case LOGIN_FAILURE:
       return { ...state, isLoading: false, isError: true };
       case LOGIN_SUCCESS_LOGOUT:
-      return { ...state, isAuth: false, userData:{email:"",username:"",image:""}};
+      return { ...state, isAuth: false, isAdmin:false,userData:{email:"",username:"",image:""}};
       case LOGIN_ADMIN_SUCCESS:
       return {...state,isAdmin:true}
 

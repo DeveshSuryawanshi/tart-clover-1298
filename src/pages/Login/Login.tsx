@@ -79,12 +79,13 @@ const toast = useToast()
   };
 
   
-  console.log(isAuth)
-  console.log(userData)
-  console.log(isAdmin,"admin")
+  // console.log(isAuth)
+  // console.log(userData)
+  // console.log(isAdmin,"admin")
   const handleLogout=()=>{
     googleLogout();
     dispatch({type:LOGIN_SUCCESS_LOGOUT})
+    
   }
 
     // if (isAuth) {
