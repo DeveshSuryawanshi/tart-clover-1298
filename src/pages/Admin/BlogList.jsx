@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Card, Image,Stack,Heading,Text,Divider,ButtonGroup,Button, CardBody, CardFooter } from '@chakra-ui/react'
-import { Fade, ScaleFade, Slide, SlideFade, Collapse } from '@chakra-ui/react'
+import { Card, Image,Stack,Heading,Text,Divider,ButtonGroup,Button, CardBody, CardFooter} from '@chakra-ui/react'
+import { Fade, ScaleFade, Slide, useToast, Collapse } from '@chakra-ui/react'
 import { BlogPost } from '../../Redux/BlogReducer/reducer';
 import { deleteBlog} from '../../Redux/BlogReducer/actions';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch ,Link} from 'react-redux';
+import { Link as RLink} from "react-router-dom";
 const BlogList = ({ el ,setCount})=> {
   const dispatch = useDispatch();
   // const [count,setCount]=useState(0)
@@ -12,13 +12,20 @@ const BlogList = ({ el ,setCount})=> {
     const [show, setShow] = React.useState(false)
 
     const handleToggle = () => setShow(!show)
-
+    const toast = useToast()
     const handleDelete = () => {
      deleteBlog(+el.id).then(()=>{
 
       dispatch({type:"DELETE_BLOG_SUCCESS",payload:el.id})
         setCount((pre)=>pre+1)
 
+        toast({
+          title: 'Blog is Delete.',
+          description: "We've deleted the post in blog page for you.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
       })
     };
   return (
@@ -54,7 +61,7 @@ const BlogList = ({ el ,setCount})=> {
         Delete
         </Button>
         <Button variant='ghost' colorScheme='blue'>
-          Add to cart
+          <RLink to={`/blog/${el.id}`}>Edit Blog</RLink>
         </Button>
       </ButtonGroup>
     </CardFooter>

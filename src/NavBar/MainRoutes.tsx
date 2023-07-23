@@ -12,13 +12,23 @@ import Taxrefund from "../pages/Calculator/TaxRefund";
 // import Admin from "../pages/Admin/Admin";
 import Register from "../pages/Login/Register";
 
+import BlogForm from "../pages/Admin/BlogForm";
+import BlogEdit from "../pages/Admin/BlogEdit";
+
+
 export const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/calculator" element={<Calculator />} />
       <Route path="/contact" element={<Contact />} />
-      {/* <Route path="/blogs" element={<Admin />} /> */}
+
+
+      <Route path="/admin" element={<Admin />} />
+<Route path="/blogForm" element={<BlogForm/>}/>
+<Route path="/blog/:id" element={<BlogEdit/>}/>
+ 
+
       <Route path="/login" element={<Login />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/blogs" element={<BlogPage />} />

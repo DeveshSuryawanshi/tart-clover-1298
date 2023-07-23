@@ -10,8 +10,10 @@ import {
 } from '@chakra-ui/react';
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const BlogForm = () => {
+  const navigate=useNavigate()
   const [formData, setFormData] = useState({
     title: "",
     date: "",
@@ -31,7 +33,7 @@ const BlogForm = () => {
   const handleSubmit = () => {
     axios.post(`https://blogposts-rn01.onrender.com/blogPosts`,formData).then(()=>{
       toast({
-        title: 'Blog is Added.',
+        title: 'Blog  Add.',
         description: "We've added the post in blog page for you.",
         status: 'success',
         duration: 9000,
@@ -39,7 +41,7 @@ const BlogForm = () => {
       })
 
     })
-    console.log(formData);
+    navigate("/admin")
   };
 
   return (
