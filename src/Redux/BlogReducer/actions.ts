@@ -23,7 +23,7 @@ export const fetchBlogPosts = () => {
         dispatch(fetchBlogPostsRequest());
 
         axios
-            .get('http://localhost:8080/blogPosts')
+            .get('https://blogposts-rn01.onrender.com/blogPosts')
             .then((response) => {
                 const blogPostsData: BlogPost[] = response.data;
                 dispatch(fetchBlogPostsSuccess(blogPostsData));
