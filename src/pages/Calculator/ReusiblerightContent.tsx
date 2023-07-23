@@ -143,4 +143,5 @@ const DIV = styled.div`
   h2 {
     font-size: 1.5rem;
   }
+ 
 `;

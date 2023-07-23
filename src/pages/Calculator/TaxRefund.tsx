@@ -171,7 +171,7 @@ const Taxrefund = () => {
                         }))
                       }
                       id="yearsel"
-                      className="wide"
+                      className="select-year-option"
                       value={year}
                     >
                       <option value="2024">2024 (Mar 2023 - Feb 2024)</option>
@@ -713,10 +713,11 @@ See our Wear and Tear calculator to see how much you can depreciate: R   `}
 export default Taxrefund;
 const DIV = styled.div`
   width: 100%;
+  /* border:2px solid blue; */
   .tax-salary-main {
     width: 90%;
     margin: auto;
-    border: 0px solid red;
+    /* border: 2px solid red; */
   }
   .dummy-image > img {
     width: 65%;
@@ -726,9 +727,11 @@ const DIV = styled.div`
   .calculate-year {
     padding: 0.6rem;
     text-align: start;
+   
   }
   .all-containt-main {
     display: flex;
+    border: 2px solid green;
   }
   /* className="right-side-content" */
   .left-side-content {
@@ -840,4 +843,14 @@ const DIV = styled.div`
   h2 {
     font-size: 1.5rem;
   }
+
+  @media (max-width: 575px) {
+    .all-containt-main {
+     flex-direction: column;
+    }
+    .select-year-option{
+      width: 200px;
+    }
+  }
+ 
 `;
