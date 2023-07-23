@@ -6,26 +6,9 @@ import  "./HomePage.css"
 
 import { useState } from "react";
 const HomePage = () => {
-  const [formData, setFormData] = useState({
-    input1: "",
-    input2: "",
-    input3: "",
-    input4: "",
-  });
+ 
 const [play,setplay]=useState(false)
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    alert ("SignUp SuccesFully")
-  };
-
+ 
   return (
     <>
       <div className="container gradient-background ">
