@@ -1,6 +1,161 @@
 
 
-.top-nav {
+
+.mainContainer{
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 15px;
+  background-color: #86c5ce;
+}
+
+.child1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imgLogo{
+  color: #2aa12e;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.Links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.link{
+  padding: 10px;
+  margin-right: 10px;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin-top: 7px;
+}
+
+.logoDiv{
+  margin-right: 40px;
+  margin-left: 20px;
+}
+
+.login{
+  background-color: #2aa12e;
+  padding: 10px 40px;
+  color: white;
+  border-radius: 3px;
+}
+
+.spanTax{
+  color: black;
+}
+
+.child2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger{
+  font-size: 35px;
+  margin: 0px 20px;
+  display: none;
+  color: white;
+}
+
+.drawLinks{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.link2{
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  /* color: white; */
+  /* border-bottom: solid white 1px; */
+}
+
+@media (max-width: 845px) {
+  .Links{
+    display: none;
+  }
+
+  .burger{
+    display: block;
+  }
+
+  .login{
+    display: none;
+  }
+
+}
+
+@media (max-width: 475px) {
+  .Links{
+    display: none;
+  }
+
+  .burger{
+    font-size: 30px;
+  }
+
+  .login{
+    display: none;
+  }
+
+  .imgLogo{
+    color: #2aa12e;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .top-nav {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
@@ -74,7 +229,7 @@
     vertical-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
-    /* align-items: center; */
+    align-items: center;
     margin-right: 300px;
   }
   
@@ -93,7 +248,7 @@
   }
   
   /* Media query for medium-sized screens */
-  @media (max-width: 820px) {
+  /* @media (max-width: 820px) {
     .top-nav {
       justify-content: space-between; 
     }
@@ -117,7 +272,7 @@
   }
   
   /* Media query for small screens */
-  @media (max-width: 375px) {
+  /* @media (max-width: 375px) {
     .reg-nav {
       display: none; 
     }
@@ -155,4 +310,4 @@
       display: none; 
     }
   }
-  
+    */

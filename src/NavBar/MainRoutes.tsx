@@ -23,17 +23,6 @@ export const MainRoutes = () => {
       <Route path="/faq" element={<Faq />} />
       <Route path="/blogs" element={<BlogPage />} />
       {/* Calculator Routes */}
-      {/* <!-- <<<<<<< day-04-fw24_688
-      <Route path="/SalaryTax" element={<SaleryTex />} />
-      <Route path="/TaxRefund" element={""} />
-      <Route path="/RetirementLumpSum" element={""} />
-      <Route path="/TravelDeduction" element={""} />
-      <Route path="/CapitalGainsTax" element={""} />
-      <Route path="/MedicalAidCredits" element={""} />
-      <Route path="/WearTear" element={""} />
-      <Route path="/RetirementSavings" element={""} />
-      <Route path="/HomeofficeCalculator" element={<HomeOfficeCalculator />} />
-======= --> */}
       <Route path="/SalaryTax" element={<SaleryTex />} />
       <Route path="/TaxRefund" element={<Taxrefund />} />
       <Route path="/RetirementLumpSum" element={""} />

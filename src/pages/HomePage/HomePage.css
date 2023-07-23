@@ -3,9 +3,17 @@
     position: relative;
     display: inline-block;
     margin-top:-20px;
+    justify-content: center;
+  }
+
+  .styles-img{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
   
   .text-overlay {
+    background-color: #86c5ce;
+    border-radius: 5px;
+    width: 600px;
     position: absolute;
     top: 25%;
     left: 25%;
@@ -14,15 +22,27 @@
     font-size: 24px;
     color: rgb(0, 0, 0);
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .styled-header{
+    display: flex;
+  }
+
+  iframe{
+    border-radius: 5px;
+  }
+
+  .imgLogo2{
+    text-align: center;
   }
   
   .form-container {
     position: absolute;
-    top: 200px;
+    top: 165px;
     right: 100px;
     text-align: left;
     gap: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
     padding: 15px;
     height: 450px;
     border-radius: 10px;
@@ -62,7 +82,7 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .ptag {
     text-align: left;
     font-weight: 200;
@@ -73,13 +93,17 @@
   
   .h3tag {
     font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    border-bottom: none;
+    font-weight: 900;
   }
   
   .section2 {
     display: flex;
     justify-content: space-around;
     line-height: -1;
-    padding:40px 0px
+    padding:40px 0px;
+    text-align: left;
   }
   
   .how-does {
@@ -90,12 +114,10 @@
   .find-button {
     display: flex;
     gap: 50px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   
   .find {
-    margin-top: 10px;
-    margin: 0 10px;
     width: 200px;
     height: 30px;
     background-color: #2aa12e;
@@ -120,9 +142,9 @@
     margin-right: 10px;
   }
   
-  .gradient-background {
+  /* .gradient-background {
     background: linear-gradient(to right, #f9f4f4, #5aeade);
-  }
+  } */
   
   .section3 {
     margin-top: 55px;
@@ -172,6 +194,41 @@
     margin-top: 25px;
     margin-bottom: 25px;
   }
+
+  .styled-h5{
+    margin: 20px 0px;
+  }
+
+  .one>div{
+    background-color: #b9ced3;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .two>div{
+    background-color: #b9ced3;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .twelve{
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .three{
+    background-color: #b9ced3;
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
   
   /* Media Queries for responsiveness */
   

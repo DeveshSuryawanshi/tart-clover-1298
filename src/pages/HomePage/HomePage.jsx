@@ -1,6 +1,7 @@
 import React from "react";
 import LapImg from "../HomePage/Screenshot (371).png"
 import HomePageImg from "../image/login.jpg"
+// import HomePageImg from "./Homepage.png"
 import  "./HomePage.css"
 
 import { useState } from "react";
@@ -28,7 +29,7 @@ const HomePage = () => {
     <>
       <div className="container gradient-background ">
         <div className="img-container">
-          <img width="100%" src={HomePageImg} alt="homepageimg" />
+          <img width="100%" className="styles-img" src={HomePageImg} alt="homepageimg" />
           <div className="text-overlay">
             <h3 className="h3tag">
               THE FASTEST, EASIEST WAY
@@ -36,63 +37,21 @@ const HomePage = () => {
             </h3>
           </div>
         </div>
+
         <div className="form-container">
-          <h2 className="h3tag">
-            Sign up for the easy
-            <br /> way to do tax returns.
-          </h2>
-          <p className="ptag">
-            Sign up for free and only pay as submit your tax
-          </p>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="input1"
-              value={formData.input1}
-              onChange={handleInputChange}
-              placeholder="Name & Surname"
-            />
-            <input
-              type="email"
-              name="input2"
-              value={formData.input2}
-              onChange={handleInputChange}
-              placeholder="Email Address"
-            />
-            <input
-              type="number"
-              name="input3"
-              value={formData.input3}
-              onChange={handleInputChange}
-              placeholder="Contact No"
-            />
-            <select
-              name="input4"
-              value={formData.input4}
-              onChange={handleInputChange}
-              placeholder="Input 4"
-            >
-              <option value="">Type of Tax</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
-            <button type="submit">Start My Tax Return</button>
-          </form>
-          <p className="ptag">
-            By submitting this form I agree to TaxTim's Terms.
-          </p>
+          <iframe width="558" height="314" src="https://www.youtube.com/embed/nAFLsldyJfs" title="Have you filed your tax return? This neat tool could maximize your SARS refund" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         {/* seconde section */}
 
         <div className="section2">
           <div className="img-container2">
-            <img width="355px" style={{borderRadius:"20px",border:"1px solid green"}} src={LapImg} alt=""  />
+            <img width="300px" src={"https://media.taxtim.com/images/tim_full.svg"} alt=""  />
+            <h1 className="imgLogo imgLogo2">Save Tax</h1>
           </div>
           <div className="how-does">
             <h2 className="h3tag">How does Tax Tim Work?</h2>
             <h3 className="h3tag">It's quite easy actually!</h3>
-            <h5>
+            <h5 className="styled-h5">
               Let's have a chat. After answering my simple questions I'll
               complete your tax return and file <br />
               it directly with SARS for your maximum possible refund!
@@ -278,3 +237,60 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* <h2 className="h3tag">
+            Sign up for the easy
+            <br /> way to do tax returns.
+          </h2>
+          <p className="ptag">
+            Sign up for free and only pay as submit your tax
+          </p>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="input1"
+              value={formData.input1}
+              onChange={handleInputChange}
+              placeholder="Name & Surname"
+            />
+            <input
+              type="email"
+              name="input2"
+              value={formData.input2}
+              onChange={handleInputChange}
+              placeholder="Email Address"
+            />
+            <input
+              type="number"
+              name="input3"
+              value={formData.input3}
+              onChange={handleInputChange}
+              placeholder="Contact No"
+            />
+            <select
+              name="input4"
+              value={formData.input4}
+              onChange={handleInputChange}
+              placeholder="Input 4"
+            >
+              <option value="">Type of Tax</option>
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+            <button type="submit">Start My Tax Return</button>
+          </form>
+          <p className="ptag">
+            By submitting this form I agree to TaxTim's Terms.
+          </p> */}
