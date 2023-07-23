@@ -18,6 +18,7 @@ import { Button, useDisclosure } from "@chakra-ui/react";
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const isAdmin = useSelector((store) => store.auth.isAdmin);
 
   return (
     <>
@@ -46,6 +47,11 @@ export const Navbar = () => {
             <Link className="link" to={"/calculator"}>
               Calculators
             </Link>
+            {isAdmin ? (
+              <Link className="link" to={"/admin"}>
+                Admin
+              </Link>
+            ) : null}
           </div>
         </div>
         <div className="child2">
@@ -78,6 +84,11 @@ export const Navbar = () => {
                 <Link className="link2" to={"/calculator"}>
                   Calculators
                 </Link>
+                {isAdmin ? (
+                  <Link className="link2" to={"/admin"}>
+                    Admin
+                  </Link>
+                ) : null}
               </div>
             </DrawerContent>
           </Drawer>
