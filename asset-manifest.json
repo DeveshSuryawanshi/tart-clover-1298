@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/tart-clover-1298/static/css/main.b9353d8f.css",
+    "main.js": "/tart-clover-1298/static/js/main.a014e146.js",
+    "static/js/787.03355030.chunk.js": "/tart-clover-1298/static/js/787.03355030.chunk.js",
+    "static/media/Screenshot (371).png": "/tart-clover-1298/static/media/Screenshot (371).de8b884fd3bad93a8b60.png",
+    "static/media/login.jpg": "/tart-clover-1298/static/media/login.cbd38d194666a455a193.jpg",
+    "index.html": "/tart-clover-1298/index.html",
+    "main.b9353d8f.css.map": "/tart-clover-1298/static/css/main.b9353d8f.css.map",
+    "main.a014e146.js.map": "/tart-clover-1298/static/js/main.a014e146.js.map",
+    "787.03355030.chunk.js.map": "/tart-clover-1298/static/js/787.03355030.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9353d8f.css",
+    "static/js/main.a014e146.js"
+  ]
+}
