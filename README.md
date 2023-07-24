@@ -82,6 +82,28 @@ Website Link :- https://64bd51d53be6e339574cc156--snazzy-peony-b92aa5.netlify.ap
 
 # App Preview 
 
+## Home Page
+<a href="https://www.linkpicture.com/view.php?img=LPic64be0833df481405043719"><img src="https://www.linkpicture.com/q/Screenshot-2023-07-24-104042.png" type="image"></a>
+<a href='https://www.linkpicture.com/view.php?img=LPic64be08e054c6c1364073524'><img src='https://www.linkpicture.com/q/S2_2.png' type='image'></a>  
+<a href="https://www.linkpicture.com/view.php?img=LPic64be093626314336632808"><img src="https://www.linkpicture.com/q/S-3_1.png" type="image"></a>
+
+## Blogs Page
+
+<a href='https://www.linkpicture.com/view.php?img=LPic64be0a84b6dc8872046459'><img src='https://www.linkpicture.com/q/S-4.png' type='image'></a>
+<a href='https://www.linkpicture.com/view.php?img=LPic64be0af557e30306853972'><img src='https://www.linkpicture.com/q/S-5.png' type='image'></a>
 
 
+## Calculators Page
+
+<a href='https://www.linkpicture.com/view.php?img=LPic64be0bfd6867d1182261352'><img src='https://www.linkpicture.com/q/S-6_2.png' type='image'></a>
+<a href='https://www.linkpicture.com/view.php?img=LPic64be0c711995a1427967661'><img src='https://www.linkpicture.com/q/S-7.png' type='image'></a> 
+
+## Admin
+
+<a href='https://www.linkpicture.com/view.php?img=LPic64be0ce9252f5441020451'><img src='https://www.linkpicture.com/q/S-8.png' type='image'></a>
+<a href='https://www.linkpicture.com/view.php?img=LPic64be0d5853c291665027961'><img src='https://www.linkpicture.com/q/S-9.png' type='image'></a>
+
+### Add Blogs form Section
+
+<a href="https://www.linkpicture.com/view.php?img=LPic64be0dc9936c1249708627"><img src="https://www.linkpicture.com/q/S-10.png" type="image"></a>
 
