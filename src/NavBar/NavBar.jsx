@@ -15,6 +15,9 @@ import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+
+// import logo from "../Images/ProjectLogo.png"
+
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
