@@ -25,8 +25,8 @@ export const MainRoutes = () => {
 
 
       <Route path="/admin" element={<Admin />} />
-<Route path="/blogForm" element={<BlogForm/>}/>
-<Route path="/blog/:id" element={<BlogEdit/>}/>
+      <Route path="/blogForm" element={<BlogForm/>}/>
+      <Route path="/blog/:id" element={<BlogEdit/>}/>
  
 
       <Route path="/login" element={<Login />} />

@@ -15,7 +15,9 @@ import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+
 // import logo from "../Images/ProjectLogo.png"
+
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -65,7 +67,7 @@ export const Navbar = () => {
           <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
             <DrawerOverlay />
             <DrawerContent bg={"#86c5ce"}>
-              <DrawerCloseButton color={"white"} mt={"3"} />
+              <DrawerCloseButton color={"white"} mt={"3"} onClose={onClose}/>
               <DrawerHeader color={"white"} fontSize={"25"}>
                 Save Tax
               </DrawerHeader>
@@ -84,6 +86,9 @@ export const Navbar = () => {
                 </Link>
                 <Link className="link2" to={"/calculator"}>
                   Calculators
+                </Link>
+                <Link className="link2" to={"/login"}>
+                  Login
                 </Link>
                 {isAdmin ? (
                   <Link className="link2" to={"/admin"}>
