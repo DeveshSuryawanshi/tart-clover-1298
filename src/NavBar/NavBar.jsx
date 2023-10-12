@@ -22,6 +22,7 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const isAdmin = useSelector((store) => store.auth.isAdmin);
+const isAuth=useSelector((store) => store.auth.isAuth);
 
   return (
     <>
@@ -58,9 +59,13 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="child2">
-          <Link className="link login" to={"/login"}>
+        {  !isAuth&& <Link className="link login" to={"/login"}>
             LOGIN
-          </Link>
+          </Link>}
+
+          {isAuth&& <Link className="link login" to={"/login"}>
+            LOGOUT
+          </Link>}
 
           {/* SideBar */}
           <GiHamburgerMenu ref={btnRef} onClick={onOpen} className="burger" />

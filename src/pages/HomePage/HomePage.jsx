@@ -5,6 +5,8 @@ import HomePageImg from "../image/login.jpg"
 import  "./HomePage.css"
 
 import { useState } from "react";
+import Buttonn from "../../Component/Button";
+
 const HomePage = () => {
   const [formData, setFormData] = useState({
     input1: "",
@@ -27,7 +29,9 @@ const HomePage = () => {
   };
   return (
     <>
-      <div className="container gradient-background ">
+ 
+
+ <div className="container gradient-background ">
         <div className="img-container">
           <img width="100%" className="styles-img" src={HomePageImg} alt="homepageimg" />
           <div className="text-overlay">
@@ -42,7 +46,7 @@ const HomePage = () => {
           <iframe width="558" height="314" src="https://www.youtube.com/embed/nAFLsldyJfs" title="Have you filed your tax return? This neat tool could maximize your SARS refund" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         {/* seconde section */}
-
+        <Buttonn/>
         <div className="section2">
           <div className="img-container2">
             <img width="300px" src={"https://media.taxtim.com/images/tim_full.svg"} alt=""  />
@@ -248,49 +252,3 @@ export default HomePage;
 
 
 
-
-          {/* <h2 className="h3tag">
-            Sign up for the easy
-            <br /> way to do tax returns.
-          </h2>
-          <p className="ptag">
-            Sign up for free and only pay as submit your tax
-          </p>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="input1"
-              value={formData.input1}
-              onChange={handleInputChange}
-              placeholder="Name & Surname"
-            />
-            <input
-              type="email"
-              name="input2"
-              value={formData.input2}
-              onChange={handleInputChange}
-              placeholder="Email Address"
-            />
-            <input
-              type="number"
-              name="input3"
-              value={formData.input3}
-              onChange={handleInputChange}
-              placeholder="Contact No"
-            />
-            <select
-              name="input4"
-              value={formData.input4}
-              onChange={handleInputChange}
-              placeholder="Input 4"
-            >
-              <option value="">Type of Tax</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
-            <button type="submit">Start My Tax Return</button>
-          </form>
-          <p className="ptag">
-            By submitting this form I agree to TaxTim's Terms.
-          </p> */}
