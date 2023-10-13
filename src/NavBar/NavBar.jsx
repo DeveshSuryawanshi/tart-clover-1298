@@ -15,6 +15,7 @@ import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { m } from "framer-motion";
 
 // import logo from "../Images/ProjectLogo.png"
 
@@ -26,7 +27,7 @@ const isAuth=useSelector((store) => store.auth.isAuth);
 
   return (
     <>
-      <div className="mainContainer">
+      {/* <div className="mainContainer">
         <div className="child1">
           <div className="logoDiv">
             <Link to={"/"}>
@@ -68,7 +69,7 @@ const isAuth=useSelector((store) => store.auth.isAuth);
           </Link>}
 
           {/* SideBar */}
-          <GiHamburgerMenu ref={btnRef} onClick={onOpen} className="burger" />
+          {/* <GiHamburgerMenu ref={btnRef} onClick={onOpen} className="burger" />
           <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
             <DrawerOverlay />
             <DrawerContent bg={"#86c5ce"}>
@@ -104,7 +105,68 @@ const isAuth=useSelector((store) => store.auth.isAuth);
             </DrawerContent>
           </Drawer>
         </div>
-      </div>
+      </div> */} 
+      <nav>
+        <h1>Tax Tim</h1>
+  <ul>
+   
+    <li>
+    <Link className="link" to={"/"}>
+              Home
+            </Link>
+      <span></span><span></span><span></span><span></span>
+    </li>
+    <li>
+    <Link className="link" to={"/contact"}>
+              Contact
+            </Link>
+      <span></span><span></span><span></span><span></span>
+    </li>
+    <li>
+    <Link className="link" to={"/faq"}>
+              FAQ
+            </Link>
+      <span></span><span></span><span></span><span></span>
+    </li>
+    
+    <li>
+    <Link className="link" to={"/blogs"}>
+              Blog
+            </Link>
+      <span></span><span></span><span></span><span></span>
+    </li>
+    <li>
+    <Link className="link" to={"/calculator"}>
+              Calculators
+            </Link>
+      <span></span><span></span><span></span><span></span>
+    </li>
+    <li>
+    { (
+              <Link className="link" to={"/admin"}>
+                Admin
+              </Link>
+            ) }
+      <span></span><span></span><span></span><span></span>
+    </li>
+   
+  </ul>
+
+  <ul>
+   {!isAuth&&  <li>
+    <Link className="link login"   to={"/login"}>
+            LOGIN
+          </Link>
+    <span></span><span></span><span></span><span></span>
+    </li>}
+  { isAuth&&  <li>
+    <Link className="link login" to={"/login"}>
+    LOGOUT
+          </Link>
+    <span></span><span></span><span></span><span></span>
+    </li>}
+  </ul>
+</nav>
     </>
   );
 };
