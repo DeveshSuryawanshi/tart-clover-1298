@@ -254,7 +254,7 @@ const Taxrefund = () => {
               onClick={handleOtherIncomeClick}
             >
               <b>OTHER INCOME</b>
-              <span>Open</span>
+              <button className="Open">Open</button>
             </div>
             {(otherEncome || employerYes == "No") && (
               <div className="calc-details" style={{ marginBottom: "1.5rem" }}>
@@ -325,7 +325,7 @@ const Taxrefund = () => {
               onClick={handleDeduction}
             >
               <b>DEDUCTIONS </b>
-              <span>Open</span>
+              <button className="Open">Open</button>
             </div>
             {deduction && (
               <div className="calc-details" style={{ marginBottom: "1.5rem" }}>
@@ -606,7 +606,8 @@ See our Wear and Tear calculator to see how much you can depreciate: R   `}
               onClick={handleClick}
             >
               <b>TAX PAID</b>
-              <span></span>
+            
+              <button className="Open">Open</button>
             </div>
 
             {sowPerson && (
@@ -719,6 +720,7 @@ const DIV = styled.div`
     margin: auto;
     /* border: 2px solid red; */
   }
+  
   .dummy-image > img {
     width: 65%;
     margin: auto;
@@ -843,6 +845,41 @@ const DIV = styled.div`
   h2 {
     font-size: 1.5rem;
   }
+  .Open {
+    text-align: center;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    /* margin: 20px; */
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  .Open:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.Open:focus {
+    outline: none;
+}
+
+.Open{
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
 
   @media (max-width: 575px) {
     .all-containt-main {
@@ -850,6 +887,7 @@ const DIV = styled.div`
     }
     .select-year-option{
       width: 200px;
+
     }
   }
  
