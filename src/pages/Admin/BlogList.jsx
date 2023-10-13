@@ -3,7 +3,7 @@ import { Card, Image,Stack,Heading,Text,Divider,ButtonGroup,Button, CardBody, Ca
 import { Fade, ScaleFade, Slide, useToast, Collapse } from '@chakra-ui/react'
 import { BlogPost } from '../../Redux/BlogReducer/reducer';
 import { deleteBlog} from '../../Redux/BlogReducer/actions';
-import { useDispatch ,Link} from 'react-redux';
+import { useDispatch ,Link, useSelector} from 'react-redux';
 import { Link as RLink} from "react-router-dom";
 const BlogList = ({ el ,setCount})=> {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const BlogList = ({ el ,setCount})=> {
         })
       })
     };
+    const isAdmin = useSelector((store) => store.auth.isAdmin);
   return (
     <Card maxW='sm'>
     <CardBody>
@@ -56,14 +57,14 @@ const BlogList = ({ el ,setCount})=> {
     </CardBody>
     <Divider />
     <CardFooter>
-      <ButtonGroup spacing='2'>
+    { isAdmin&& <ButtonGroup spacing='2'>
         <Button variant='solid' colorScheme='blue' onClick={handleDelete}>
         Delete
         </Button>
         <Button variant='ghost' colorScheme='blue'>
           <RLink to={`/blog/${el.id}`}>Edit Blog</RLink>
         </Button>
-      </ButtonGroup>
+      </ButtonGroup>}
     </CardFooter>
   </Card>
   )

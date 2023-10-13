@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider, Button, ButtonGroup } from '@chakra-ui/react';
 import { useToast } from '@chakra-ui/react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 interface User {
   email: string;
@@ -20,7 +21,7 @@ interface UserCartProps {
 const UserCart = ({ el, setUserData }: UserCartProps) => {
   const { id, username, email, password, image } = el;
   const toast = useToast();
-
+  const isAdmin = useSelector((store:any) => store.auth.isAdmin);
   const handleDelete = () => {
     axios
       .delete(`https://cw-project-rct101.onrender.com/users/${id}`)
@@ -62,11 +63,11 @@ const UserCart = ({ el, setUserData }: UserCartProps) => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <ButtonGroup spacing='2'>
+          {isAdmin&&<ButtonGroup spacing='2'>
             <Button variant='solid' colorScheme='blue' onClick={handleDelete}>
               Delete
             </Button>
-          </ButtonGroup>
+          </ButtonGroup>}
         </CardFooter>
       </Card>
     </div>
