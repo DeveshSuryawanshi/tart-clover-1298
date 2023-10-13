@@ -1,4 +1,4 @@
-import { Slide } from '@chakra-ui/react';
+
 import React, { useState } from 'react';
 import Side from './Side';
 import User from './User';

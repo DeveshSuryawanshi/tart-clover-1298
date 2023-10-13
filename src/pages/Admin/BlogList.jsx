@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Card, Image,Stack,Heading,Text,Divider,ButtonGroup,Button, CardBody, CardFooter} from '@chakra-ui/react'
-import { Fade, ScaleFade, Slide, useToast, Collapse } from '@chakra-ui/react'
-import { BlogPost } from '../../Redux/BlogReducer/reducer';
+import React from 'react'
+import { Card, Image,Stack,Text,Divider,ButtonGroup,Button, CardBody, CardFooter} from '@chakra-ui/react'
+import {  useToast, Collapse } from '@chakra-ui/react'
+
 import { deleteBlog} from '../../Redux/BlogReducer/actions';
-import { useDispatch ,Link, useSelector} from 'react-redux';
+import { useDispatch , useSelector} from 'react-redux';
 import { Link as RLink} from "react-router-dom";
 const BlogList = ({ el ,setCount})=> {
   const dispatch = useDispatch();
