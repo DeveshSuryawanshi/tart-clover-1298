@@ -22,7 +22,7 @@ const navigate=useNavigate()
     navigate("/blogForm")
   ]
   return (
-    <div>
+    <div style={{position:"sticky", top:"75px"}}>
       <VStack divider={<StackDivider borderColor='gray.200' />} spacing={4} align='center'>
         <Button colorScheme='blue' onClick={handleUser}>
           User Data

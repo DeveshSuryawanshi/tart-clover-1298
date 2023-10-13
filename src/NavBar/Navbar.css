@@ -1,39 +1,37 @@
-
-
-
 .mainContainer{
+
   position: sticky;
   top: 0px;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  padding-bottom: 15px;
+ 
   background-color: #86c5ce;
+text-align: center;
 }
 
-/* .child1{
+nav{
+
   display: flex;
-  align-items: center;
   justify-content: space-between;
-} */
+  position: relative;
+  align-items: center;
+ width: 100%;
+  background-color: #86c5ce;
 
-.imgLogo{
-  color: #2aa12e;
-  font-size: 35px;
-  font-weight: 900;
 }
+
+
+
+
+
 
 .spanTax{
   color: rgb(239, 228, 228);
 }
 
-.child2{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .burger{
   font-size: 35px;
@@ -58,6 +56,107 @@
   /* border-bottom: solid white 1px; */
 }
 
+
+
+h1{
+  background-color: rgb(189, 236, 187);
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 30px;
+  border-radius: 30px;
+}
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  /* padding: 10px;
+  padding-bottom: 15px; */
+}
+
+nav ul li {
+  --c: rgb(26, 67, 73);
+  color: white;
+  font-size: 16px;
+  border: 0.3em solid var(--c);
+  border-radius: 0.5em;
+  /* width: 150px; */
+  /* height: 3em; */
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  /* line-height: 3em; */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1em;
+ padding-left: 20px;
+  
+}
+
+nav ul li span {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  background-color: var(--c);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+Link{
+  background-color: #2aa12e;
+  border: 10px solid red;
+}
+nav ul li:hover {
+  color: rgb(231, 204, 204);
+}
+
+nav ul li:hover span {
+  transform: translateY(0) scale(2);
+}
+
+nav ul li span:nth-child(2) {
+  --n: 1;
+}
+
+nav ul li span:nth-child(3) {
+  --n: 2;
+}
+
+nav ul li span:nth-child(4) {
+  --n: 3;
+}
+
+nav ul li span:nth-child(5) {
+  --n: 4;
+}
+/* nav ul li span:nth-child(1) {
+  --n: 5;
+} */
+
+@media (max-width: 1271px) {
+  nav ul li {
+  display: none;
+    
+  }
+  .burger{
+    display: block;
+    color: #000;
+  }
+
+}
 @media (max-width: 845px) {
   .Links{
     display: none;
@@ -93,101 +192,6 @@
   }
 
 }
-
-h1{
-  background-color: rgb(189, 236, 187);
-  padding: 10px;
-  margin-left: 10px;
-  font-size: 30px;
-  border-radius: 30px;
-}
-nav{
-  position: sticky;
-  top: 0px;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
- 
-  background-color: #86c5ce;
-}
-
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* padding: 10px;
-  padding-bottom: 15px; */
-}
-
-nav ul li {
-  --c: rgb(26, 67, 73);
-  color: white;
-  font-size: 16px;
-  border: 0.3em solid var(--c);
-  border-radius: 0.5em;
-  width: 12em;
-  /* height: 3em; */
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: sans-serif;
-  letter-spacing: 0.1em;
-  text-align: center;
-  line-height: 3em;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: 0.5s;
-  margin: 1em;
-  
-}
-
-nav ul li span {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  background-color: var(--c);
-  transform: translateY(150%);
-  border-radius: 50%;
-  left: calc((var(--n) - 1) * 25%);
-  transition: 0.5s;
-  transition-delay: calc((var(--n) - 1) * 0.1s);
-  z-index: -1;
-}
-
-nav ul li:hover {
-  color: rgb(231, 204, 204);
-}
-
-nav ul li:hover span {
-  transform: translateY(0) scale(2);
-}
-
-nav ul li span:nth-child(2) {
-  --n: 1;
-}
-
-nav ul li span:nth-child(3) {
-  --n: 2;
-}
-
-nav ul li span:nth-child(4) {
-  --n: 3;
-}
-
-nav ul li span:nth-child(5) {
-  --n: 4;
-}
-/* nav ul li span:nth-child(1) {
-  --n: 5;
-} */
-
-
-
 
 
 

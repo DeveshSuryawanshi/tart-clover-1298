@@ -22,9 +22,7 @@ const Blog = () => {
   }, [dispatch]);
   console.log(blogPosts)
 
-  // const [show, setShow] = React.useState(false)
 
-  // const handleToggle = () => setShow(!show)
   const [count,setCount]=useState(0)
 
   return (
