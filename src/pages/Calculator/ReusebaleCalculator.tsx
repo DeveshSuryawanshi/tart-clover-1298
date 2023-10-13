@@ -11,7 +11,7 @@ const ReusebaleCalculator = () => {
               Switch to TaxTim and
               <span> WIN R10,000</span>
             </strong>
-            <a href="#"> T&amp;C's apply</a>
+            T&amp;C's apply
           </div>
           <h3>How do you currently do your tax?</h3>
           <div className="btn-box">

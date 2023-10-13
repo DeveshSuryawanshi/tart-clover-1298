@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Stack, StackDivider, VStack } from '@chakra-ui/react';
+import { Button, StackDivider, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 interface SideProps {
