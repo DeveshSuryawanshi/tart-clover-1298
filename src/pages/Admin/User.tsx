@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import UserCart from './UserCart';
 import { Grid, GridItem,Heading,  useBreakpointValue } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+
 
 // Define the 'user' interface at the top level of the file
 interface User {
