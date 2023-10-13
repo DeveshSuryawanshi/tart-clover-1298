@@ -36,22 +36,7 @@ const isAuth=useSelector((store) => store.auth.isAuth);
               </h1>
             </Link>
           </div>
-          <div className="Links">
-            <Link className="link" to={"/"}>
-              Home
-            </Link>
-            <Link className="link" to={"/contact"}>
-              Contact
-            </Link>
-            <Link className="link" to={"/faq"}>
-              FAQ
-            </Link>
-            <Link className="link" to={"/blogs"}>
-              Blog
-            </Link>
-            <Link className="link" to={"/calculator"}>
-              Calculators
-            </Link>
+        
             {isAdmin ? (
               <Link className="link" to={"/admin"}>
                 Admin
