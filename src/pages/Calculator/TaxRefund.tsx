@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { styled } from "styled-components";
 import ReusebaleCalculator from "./ReusebaleCalculator";
-import { Link } from "react-router-dom";
+
 import ReusiblerightContent from "./ReusiblerightContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
@@ -74,7 +74,7 @@ const Taxrefund = () => {
   const [AllData, setAllData] = useState<TypeOfData>(initialSaleryData);
   const [otherEncome, setOtherIncome] = useState(false);
   const [deduction, setdeduction] = useState(false);
-  const [Taxpaid, setTaxpaid] = useState(false);
+
   const [totalAmount, setTotalAmount] = useState(0);
   const [AllDetails2, setAllDetails2] = useState<null | TypeOfData>(null);
   // const [sowPoster,setSowPoster]=useState(true)
@@ -85,7 +85,6 @@ const Taxrefund = () => {
     employerYes,
     Gross_Employment_Income,
     Total_annuity_fund,
-    deductions_salary,
     Interest_bank_accounts,
     business_activity,
     Other_income,
@@ -101,13 +100,8 @@ const Taxrefund = () => {
     work_purposes,
     depreciate,
     claim,
-    duration,
-    salary_include_raf,
+  
     salary_include_raf_value,
-    pay_private_raf,
-    pay_private_raf_value,
-    monthly_allowance,
-    monthly_allowance_value,
     age,
   } = AllData;
   const handleClick = () => {
@@ -119,9 +113,9 @@ const Taxrefund = () => {
   const handleDeduction = () => {
     setdeduction((prev) => !prev);
   };
-  const handleTaxPaid = () => {
-    setdeduction((prev) => !prev);
-  };
+  // const handleTaxPaid = () => {
+  //   setdeduction((prev) => !prev);
+  // };
 
   const handleCalculate = () => {
     let sum =
@@ -256,7 +250,7 @@ const Taxrefund = () => {
               <b>OTHER INCOME</b>
               <button className="Open">Open</button>
             </div>
-            {(otherEncome || employerYes == "No") && (
+            {(otherEncome || employerYes === "No") && (
               <div className="calc-details" style={{ marginBottom: "1.5rem" }}>
                 <div className="calc-box grey">
                   <div className="row">
@@ -400,7 +394,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                   </div>
                   <div className="row">
                     Did you donate to a{" "}
-                    <a style={{ color: "green" }} href="#">
+                    <a style={{ color: "green" }} href="ghfh">
                       PBO
                     </a>{" "}
                     (aka charity / non-profit)?
@@ -424,7 +418,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {donate == "Yes" && (
+                  {donate === "Yes" && (
                     <div className="row">
                       {`Please enter the total amount you donated. You must have a certificate!  R    `}
 
@@ -463,7 +457,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {hospital_plan == "Yes" && (
+                  {hospital_plan === "Yes" && (
                     <div className="row">
                       {`→ Please enter the : (hospital_plan)   `}
                       <input
@@ -500,7 +494,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {pocket_medical_expenses == "Yes" && (
+                  {pocket_medical_expenses === "Yes" && (
                     <div className="row">
                       {`Please enter only the expenses that your medical aid did not pay for: R `}
                       <input
@@ -540,7 +534,7 @@ If you paid for any of these yourself then you should have a monthly account or 
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {work_purposes == "Yes" && (
+                  {work_purposes === "Yes" && (
                     <div className="row">
                       {`You can depreciate their value to reduce your tax.
 See our Wear and Tear calculator to see how much you can depreciate: R   `}
@@ -579,7 +573,7 @@ See our Wear and Tear calculator to see how much you can depreciate: R   `}
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {travel_expenses == "Yes" && (
+                  {travel_expenses === "Yes" && (
                     <div className="row">
                       {`Use our Travel Deduction calculator to see how much you can claim: R  `}
                       <input

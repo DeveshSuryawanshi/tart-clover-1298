@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { styled } from "styled-components";
 import ReusebaleCalculator from "./ReusebaleCalculator";
 import { Link } from "react-router-dom";
@@ -185,7 +185,7 @@ const SaleryTex = () => {
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {salary_include_raf == "Yes" && (
+                  {salary_include_raf === "Yes" && (
                     <div className="row">
                       {`→ Please enter the total amount:   `}
 
@@ -226,7 +226,7 @@ const SaleryTex = () => {
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {pay_private_raf == "Yes" && (
+                  {pay_private_raf  ==="Yes" && (
                     <div className="row">
                       {`→ Please enter the total amount:   `}
                       <input
@@ -265,7 +265,7 @@ const SaleryTex = () => {
                       <option value="Yes">Yes</option>
                     </select>
                   </div>
-                  {monthly_allowance == "Yes" && (
+                  {monthly_allowance === "Yes" && (
                     <div className="row">
                       {`→ Please enter the total amount:   `}
                       <input
