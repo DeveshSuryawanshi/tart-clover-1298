@@ -1,9 +1,7 @@
-import { Flex } from '@chakra-ui/react';
-import React from 'react';
 
 export const Faq = () => {
   return (
-    <div className='faq' style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: '30px', textAlign: 'left' }}>
+    <div className='faq' style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '40px', textAlign: 'left',backgroundImage:'linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673)' ,fontWeight:'700' }}>
       <h1 style={{ fontWeight: 'bold', marginBottom: '10px', marginTop: '10px' }}>Frequently asked questions</h1>
       <h2>What makes TaxTim the fastest, easiest way to submit your tax return</h2>
 
